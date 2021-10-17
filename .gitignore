@@ -24,3 +24,4 @@ run
 runServer
 logs
 
+/src/generated/resources/.cache/
