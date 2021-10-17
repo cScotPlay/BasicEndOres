@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "beo:block/tin_block"
+    }
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "beo:copper_block"
+    }
+  ],
+  "result": {
+    "item": "beo:copper_ingot",
+    "count": 9
+  }
+}
