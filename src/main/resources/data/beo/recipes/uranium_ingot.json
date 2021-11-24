@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "beo:uranium_block"
+    }
+  ],
+  "result": {
+    "item": "beo:uranium_ingot",
+    "count": 9
+  }
+}

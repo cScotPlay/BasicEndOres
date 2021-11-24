@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "beo:block/lead_block"
+    }
+  }
+}

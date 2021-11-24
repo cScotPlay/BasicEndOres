@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "copper_ingot",
+  "pattern": [
+    "###",
+    "###",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "beo:copper_nugget"
+    }
+  },
+  "result": {
+    "item": "beo:copper_ingot"
+  }
+}
