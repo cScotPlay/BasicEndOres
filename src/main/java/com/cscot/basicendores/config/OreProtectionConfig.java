@@ -47,7 +47,9 @@ public class OreProtectionConfig
                                 "beo:end_aluminum_ore",
                                 "beo:end_tin_ore",
                                 "beo:end_osmium_ore",
-                                "beo:end_uranium_ore"
+                                "beo:end_uranium_ore",
+                                "beo:end_zinc_ore"
+
                         }), (obj) -> obj instanceof String ? true : false);
     }
 

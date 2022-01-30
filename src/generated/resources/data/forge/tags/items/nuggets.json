@@ -7,6 +7,7 @@
     "#forge:nuggets/nickel",
     "#forge:nuggets/copper",
     "#forge:nuggets/tin",
-    "#forge:nuggets/osmium"
+    "#forge:nuggets/osmium",
+    "#forge:nuggets/zinc"
   ]
 }

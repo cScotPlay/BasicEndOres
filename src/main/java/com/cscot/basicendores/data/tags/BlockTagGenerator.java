@@ -1,84 +1,142 @@
 package com.cscot.basicendores.data.tags;
 
 import com.cscot.basicendores.BasicEndOres;
-import com.cscot.basicendores.lists.BlockList;
-import com.cscot.basicendores.lists.BlockOreList;
-import com.cscot.basicendores.objects.BlockBase;
-import com.cscot.basicendores.objects.BlockOreBase;
-import net.minecraft.block.Block;
-import net.minecraft.block.Blocks;
-import net.minecraft.data.BlockTagsProvider;
+import com.cscot.basicendores.world.level.block.*;
 import net.minecraft.data.DataGenerator;
+import net.minecraft.data.tags.BlockTagsProvider;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.BlockTags;
-import net.minecraft.tags.ITag;
-import net.minecraft.tags.Tag;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraftforge.common.Tags;
 import net.minecraftforge.common.data.ExistingFileHelper;
 
 import static net.minecraftforge.common.Tags.Blocks.*;
 
-import javax.annotation.Nullable;
 import java.util.Comparator;
 import java.util.function.Predicate;
 
 public class BlockTagGenerator extends BlockTagsProvider
 {
-    protected final Predicate<Block> ORE_BLOCKS = registry -> BasicEndOres.modid.equals(registry.getRegistryName().getNamespace());
+    protected final Predicate<Block> ORE_BLOCKS = registry -> BasicEndOres.MODID.equals(registry.getRegistryName().getNamespace());
 
-    public static final ITag.INamedTag<Block> ORES_ALUMINUM = BlockTags.makeWrapperTag("forge:ores/aluminum");
-    public static final ITag.INamedTag<Block> ORES_SILVER = BlockTags.makeWrapperTag("forge:ores/silver");
-    public static final ITag.INamedTag<Block> ORES_LEAD = BlockTags.makeWrapperTag("forge:ores/lead");
-    public static final ITag.INamedTag<Block> ORES_NICKEL = BlockTags.makeWrapperTag("forge:ores/nickel");
-    public static final ITag.INamedTag<Block> ORES_COPPER = BlockTags.makeWrapperTag("forge:ores/copper");
-    public static final ITag.INamedTag<Block> ORES_TIN = BlockTags.makeWrapperTag("forge:ores/tin");
-    public static final ITag.INamedTag<Block> ORES_OSMIUM = BlockTags.makeWrapperTag("forge:ores/osmium");
-    public static final ITag.INamedTag<Block> ORES_URANIUM = BlockTags.makeWrapperTag("forge:ores/uranium");
+    public static final Tags.IOptionalNamedTag<Block> ORES_ALUMINUM = tagForge("ores/aluminum");
+    public static final Tags.IOptionalNamedTag<Block> ORES_GOLD = tagForge("ores/gold");
+    public static final Tags.IOptionalNamedTag<Block> ORES_SILVER = tagForge("ores/silver");
+    public static final Tags.IOptionalNamedTag<Block> ORES_LEAD = tagForge("ores/lead");
+    public static final Tags.IOptionalNamedTag<Block> ORES_NICKEL = tagForge("ores/nickel");
+    public static final Tags.IOptionalNamedTag<Block> ORES_COPPER = tagForge("ores/copper");
+    public static final Tags.IOptionalNamedTag<Block> ORES_TIN = tagForge("ores/tin");
+    public static final Tags.IOptionalNamedTag<Block> ORES_OSMIUM = tagForge("ores/osmium");
+    public static final Tags.IOptionalNamedTag<Block> ORES_URANIUM = tagForge("ores/uranium");
+    public static final Tags.IOptionalNamedTag<Block> ORES_ZINC = tagForge("ores/zinc");
 
-    public static final ITag.INamedTag<Block> ALUMINUM_BLOCK = BlockTags.makeWrapperTag("forge:storage_blocks/aluminum");
-    public static final ITag.INamedTag<Block> SILVER_BLOCK = BlockTags.makeWrapperTag("forge:storage_blocks/silver");
-    public static final ITag.INamedTag<Block> LEAD_BLOCK = BlockTags.makeWrapperTag("forge:storage_blocks/lead");
-    public static final ITag.INamedTag<Block> NICKEL_BLOCK = BlockTags.makeWrapperTag("forge:storage_blocks/nickel");
-    public static final ITag.INamedTag<Block> COPPER_BLOCK = BlockTags.makeWrapperTag("forge:storage_blocks/copper");
-    public static final ITag.INamedTag<Block> TIN_BLOCK = BlockTags.makeWrapperTag("forge:storage_blocks/tin");
-    public static final ITag.INamedTag<Block> OSMIUM_BLOCK = BlockTags.makeWrapperTag("forge:storage_blocks/osmium");
-    public static final ITag.INamedTag<Block> URANIUM_BLOCK = BlockTags.makeWrapperTag("forge:storage_blocks/uranium");
+    public static final Tags.IOptionalNamedTag<Block> ALUMINUM_BLOCK = tagForge("storage_blocks/aluminum");
+    public static final Tags.IOptionalNamedTag<Block> SILVER_BLOCK = tagForge("storage_blocks/silver");
+    public static final Tags.IOptionalNamedTag<Block> LEAD_BLOCK = tagForge("storage_blocks/lead");
+    public static final Tags.IOptionalNamedTag<Block> NICKEL_BLOCK = tagForge("storage_blocks/nickel");
+    public static final Tags.IOptionalNamedTag<Block> COPPER_BLOCK = tagForge("storage_blocks/copper");
+    public static final Tags.IOptionalNamedTag<Block> TIN_BLOCK = tagForge("storage_blocks/tin");
+    public static final Tags.IOptionalNamedTag<Block> OSMIUM_BLOCK = tagForge("storage_blocks/osmium");
+    public static final Tags.IOptionalNamedTag<Block> URANIUM_BLOCK = tagForge("storage_blocks/uranium");
+    public static final Tags.IOptionalNamedTag<Block> ZINC_BLOCK = tagForge("storage_blocks/zinc");
 
     public BlockTagGenerator(DataGenerator generator, ExistingFileHelper exFileHelper) {
-        super(generator, BasicEndOres.modid, exFileHelper);
+        super(generator, BasicEndOres.MODID, exFileHelper);
     }
 
     @Override
-    protected void registerTags()
+    protected void addTags()
     {
-        getOrCreateBuilder(ORES).add(registry.stream().filter(ORE_BLOCKS).filter(b -> b instanceof BlockOreBase).sorted(Comparator.comparing(Block::getRegistryName)).toArray(Block[]::new));
-        getOrCreateBuilder(STORAGE_BLOCKS).add(registry.stream().filter(ORE_BLOCKS).filter(b -> b instanceof BlockBase).sorted(Comparator.comparing(Block::getRegistryName)).toArray(Block[]::new));
+        // ***************************************************************************** //
+        //  Forge Tags
+        // ***************************************************************************** //
+        tag(ORES).add(registry.stream().filter(ORE_BLOCKS).filter(b -> b instanceof ModOreBlock).sorted(Comparator.comparing(Block::getRegistryName)).toArray(Block[]::new));
+        tag(STORAGE_BLOCKS).add(registry.stream().filter(ORE_BLOCKS).filter(b -> b instanceof ModMetalBlock).sorted(Comparator.comparing(Block::getRegistryName)).toArray(Block[]::new));
 
-        getOrCreateBuilder(ORES_COAL).add(BlockOreList.end_coal_ore);
-        getOrCreateBuilder(ORES_DIAMOND).add(BlockOreList.end_diamond_ore);
-        getOrCreateBuilder(ORES_EMERALD).add(BlockOreList.end_emerald_ore);
-        getOrCreateBuilder(ORES_GOLD).add(BlockOreList.end_gold_ore);
-        getOrCreateBuilder(ORES_IRON).add(BlockOreList.end_iron_ore);
-        getOrCreateBuilder(ORES_LAPIS).add(BlockOreList.end_lapis_ore);
-        getOrCreateBuilder(ORES_REDSTONE).add(BlockOreList.end_redstone_ore);
+        tag(ORES_COAL).add(ModBlocks.END_COAL_ORE.get());
+        tag(ORES_DIAMOND).add(ModBlocks.END_DIAMOND_ORE.get());
+        tag(ORES_EMERALD).add(ModBlocks.END_EMERALD_ORE.get());
+        tag(ORES_GOLD).add(ModBlocks.END_GOLD_ORE.get());
+        tag(ORES_IRON).add(ModBlocks.END_IRON_ORE.get());
+        tag(ORES_LAPIS).add(ModBlocks.END_LAPIS_ORE.get());
+        tag(ORES_REDSTONE).add(ModBlocks.END_REDSTONE_ORE.get());
 
-        getOrCreateBuilder(ORES_ALUMINUM).add(BlockOreList.end_aluminum_ore);
-        getOrCreateBuilder(ORES_SILVER).add(BlockOreList.end_silver_ore);
-        getOrCreateBuilder(ORES_LEAD).add(BlockOreList.end_lead_ore);
-        getOrCreateBuilder(ORES_NICKEL).add(BlockOreList.end_nickel_ore);
-        getOrCreateBuilder(ORES_COPPER).add(BlockOreList.end_copper_ore);
-        getOrCreateBuilder(ORES_TIN).add(BlockOreList.end_tin_ore);
-        getOrCreateBuilder(ORES_OSMIUM).add(BlockOreList.end_osmium_ore);
-        getOrCreateBuilder(ORES_URANIUM).add(BlockOreList.end_uranium_ore);
+        tag(ORES_ALUMINUM).add(ModBlocks.END_ALUMINUM_ORE.get());
+        tag(ORES_SILVER).add(ModBlocks.END_SILVER_ORE.get());
+        tag(ORES_LEAD).add(ModBlocks.END_LEAD_ORE.get());
+        tag(ORES_NICKEL).add(ModBlocks.END_NICKEL_ORE.get());
+        tag(ORES_COPPER).add(ModBlocks.END_COPPER_ORE.get());
+        tag(ORES_TIN).add(ModBlocks.END_TIN_ORE.get());
+        tag(ORES_OSMIUM).add(ModBlocks.END_OSMIUM_ORE.get());
+        tag(ORES_URANIUM).add(ModBlocks.END_URANIUM_ORE.get());
+        tag(ORES_ZINC).add(ModBlocks.END_ZINC_ORE.get());
 
-        getOrCreateBuilder(ALUMINUM_BLOCK).add(BlockList.aluminum_block);
-        getOrCreateBuilder(SILVER_BLOCK).add(BlockList.silver_block);
-        getOrCreateBuilder(LEAD_BLOCK).add(BlockList.lead_block);
-        getOrCreateBuilder(NICKEL_BLOCK).add(BlockList.nickel_block);
-        getOrCreateBuilder(COPPER_BLOCK).add(BlockList.copper_block);
-        getOrCreateBuilder(TIN_BLOCK).add(BlockList.tin_block);
-        getOrCreateBuilder(OSMIUM_BLOCK).add(BlockList.osmium_block);
-        getOrCreateBuilder(URANIUM_BLOCK).add(BlockList.uranium_block);
+        tag(ALUMINUM_BLOCK).add(ModBlocks.ALUMINUM_BLOCK.get());
+        tag(SILVER_BLOCK).add(ModBlocks.SILVER_BLOCK.get());
+        tag(LEAD_BLOCK).add(ModBlocks.LEAD_BLOCK.get());
+        tag(NICKEL_BLOCK).add(ModBlocks.NICKEL_BLOCK.get());
+        tag(COPPER_BLOCK).add(Blocks.COPPER_BLOCK);
+        tag(TIN_BLOCK).add(ModBlocks.TIN_BLOCK.get());
+        tag(OSMIUM_BLOCK).add(ModBlocks.OSMIUM_BLOCK.get());
+        tag(URANIUM_BLOCK).add(ModBlocks.URANIUM_BLOCK.get());
+        tag(ZINC_BLOCK).add(ModBlocks.ZINC_BLOCK.get());
 
+        // ***************************************************************************** //
+        //  Vanilla Tags
+        // ***************************************************************************** //
+        this.tag(BlockTags.IRON_ORES).add(ModBlocks.END_IRON_ORE.get());
+        this.tag(BlockTags.DIAMOND_ORES).add(ModBlocks.END_DIAMOND_ORE.get());
+        this.tag(BlockTags.REDSTONE_ORES).add(ModBlocks.END_REDSTONE_ORE.get());
+        this.tag(BlockTags.COAL_ORES).add(ModBlocks.END_COAL_ORE.get());
+        this.tag(BlockTags.EMERALD_ORES).add(ModBlocks.END_EMERALD_ORE.get());
+        this.tag(BlockTags.GOLD_ORES).add(ModBlocks.END_GOLD_ORE.get());
+        this.tag(BlockTags.COPPER_ORES).add(ModBlocks.END_COPPER_ORE.get());
+        this.tag(BlockTags.LAPIS_ORES).add(ModBlocks.END_LAPIS_ORE.get());
 
+        ///// MINEABLE WITH PICKAXE ///////
+        tag(BlockTags.MINEABLE_WITH_PICKAXE).add(registry.stream().filter(ORE_BLOCKS).filter(b -> b instanceof ModOreBlock).sorted(Comparator.comparing(Block::getRegistryName)).toArray(Block[]::new));
+        tag(BlockTags.MINEABLE_WITH_PICKAXE).add(registry.stream().filter(ORE_BLOCKS).filter(b -> b instanceof ModMetalBlock).sorted(Comparator.comparing(Block::getRegistryName)).toArray(Block[]::new));
+        tag(BlockTags.MINEABLE_WITH_PICKAXE).add(registry.stream().filter(ORE_BLOCKS).filter(b -> b instanceof ModRawOreBlock).sorted(Comparator.comparing(Block::getRegistryName)).toArray(Block[]::new));
+        tag(BlockTags.MINEABLE_WITH_PICKAXE).add(registry.stream().filter(ORE_BLOCKS).filter(b -> b instanceof ModRedstoneOreBlock).sorted(Comparator.comparing(Block::getRegistryName)).toArray(Block[]::new));
+
+        this.tag(BlockTags.NEEDS_IRON_TOOL).add(
+                ModBlocks.END_DIAMOND_ORE.get(),
+                ModBlocks.END_EMERALD_ORE.get(),
+                ModBlocks.END_REDSTONE_ORE.get(),
+                ModBlocks.END_GOLD_ORE.get(),
+                ModBlocks.END_SILVER_ORE.get(),
+                ModBlocks.RAW_SILVER_BLOCK.get(),
+                ModBlocks.SILVER_BLOCK.get(),
+                ModBlocks.END_LEAD_ORE.get(),
+                ModBlocks.RAW_LEAD_BLOCK.get(),
+                ModBlocks.LEAD_BLOCK.get(),
+                ModBlocks.END_NICKEL_ORE.get(),
+                ModBlocks.RAW_NICKEL_BLOCK.get(),
+                ModBlocks.NICKEL_BLOCK.get(),
+                ModBlocks.END_URANIUM_ORE.get(),
+                ModBlocks.RAW_URANIUM_BLOCK.get(),
+                ModBlocks.URANIUM_BLOCK.get(),
+                ModBlocks.RAW_ZINC_BLOCK.get(),
+                ModBlocks.ZINC_BLOCK.get());
+
+        this.tag(BlockTags.NEEDS_STONE_TOOL).add(
+                ModBlocks.END_IRON_ORE.get(),
+                ModBlocks.END_LAPIS_ORE.get(),
+                ModBlocks.END_COPPER_ORE.get(),
+                ModBlocks.END_ALUMINUM_ORE.get(),
+                ModBlocks.RAW_ALUMINUM_BLOCK.get(),
+                ModBlocks.ALUMINUM_BLOCK.get(),
+                ModBlocks.END_TIN_ORE.get(),
+                ModBlocks.RAW_TIN_BLOCK.get(),
+                ModBlocks.TIN_BLOCK.get(),
+                ModBlocks.END_OSMIUM_ORE.get(),
+                ModBlocks.RAW_OSMIUM_BLOCK.get(),
+                ModBlocks.OSMIUM_BLOCK.get());
+    }
+
+    private static Tags.IOptionalNamedTag<Block> tagForge(String name)
+    {
+        return BlockTags.createOptional(new ResourceLocation("forge", name));
     }
 }

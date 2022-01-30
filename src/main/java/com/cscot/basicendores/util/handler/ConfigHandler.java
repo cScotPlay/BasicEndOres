@@ -50,7 +50,7 @@ public class ConfigHandler
         spec.setConfig(configData);
     }
 
-    @SubscribeEvent
+    /*@SubscribeEvent
     public static void onLoad(final ModConfig.Loading configEvent) {
         BasicEndOres.logger.debug("Loaded {} config file {}", BasicEndOres.modid, configEvent.getConfig().getFileName());
     }
@@ -63,6 +63,5 @@ public class ConfigHandler
             BasicEndOres.logger.fatal(CORE, "{} config just got changed on the file system!", BasicEndOres.modid);
             BlockListHelper.initProtectedBlocks();
         }
-    }
-
+    }*/
 }

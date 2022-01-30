@@ -1,13 +1,13 @@
 package com.cscot.basicendores.data.tags;
 
 import com.cscot.basicendores.BasicEndOres;
-import com.cscot.basicendores.lists.IngotList;
-import net.minecraft.data.BlockTagsProvider;
+import com.cscot.basicendores.world.item.ModItems;
 import net.minecraft.data.DataGenerator;
-import net.minecraft.data.ItemTagsProvider;
-import net.minecraft.item.Item;
-import net.minecraft.tags.ITag;
+import net.minecraft.data.tags.BlockTagsProvider;
+import net.minecraft.data.tags.ItemTagsProvider;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.ItemTags;
+import net.minecraft.world.item.Item;
 import net.minecraftforge.common.Tags;
 import net.minecraftforge.common.data.ExistingFileHelper;
 
@@ -15,48 +15,51 @@ import javax.annotation.Nullable;
 
 public class ItemTagGenerator extends ItemTagsProvider
 {
-    public static final ITag.INamedTag<Item> ORES_ALUMINUM = ItemTags.makeWrapperTag("forge:ores/aluminum");
-    public static final ITag.INamedTag<Item> ORES_SILVER = ItemTags.makeWrapperTag("forge:ores/silver");
-    public static final ITag.INamedTag<Item> ORES_LEAD = ItemTags.makeWrapperTag("forge:ores/lead");
-    public static final ITag.INamedTag<Item> ORES_NICKEL = ItemTags.makeWrapperTag("forge:ores/nickel");
-    public static final ITag.INamedTag<Item> ORES_COPPER = ItemTags.makeWrapperTag("forge:ores/copper");
-    public static final ITag.INamedTag<Item> ORES_TIN = ItemTags.makeWrapperTag("forge:ores/tin");
-    public static final ITag.INamedTag<Item> ORES_OSMIUM = ItemTags.makeWrapperTag("forge:ores/osmium");
-    public static final ITag.INamedTag<Item> ORES_URANIUM = ItemTags.makeWrapperTag("forge:ores/uranium");
+    public static final Tags.IOptionalNamedTag<Item> ORES_ALUMINUM = tagForge("ores/aluminum");
+    public static final Tags.IOptionalNamedTag<Item> ORES_SILVER = tagForge("ores/silver");
+    public static final Tags.IOptionalNamedTag<Item> ORES_LEAD = tagForge("ores/lead");
+    public static final Tags.IOptionalNamedTag<Item> ORES_NICKEL = tagForge("ores/nickel");
+    public static final Tags.IOptionalNamedTag<Item> ORES_GOLD = tagForge("ores/gold");
+    public static final Tags.IOptionalNamedTag<Item> ORES_COPPER = tagForge("ores/copper");
+    public static final Tags.IOptionalNamedTag<Item> ORES_TIN = tagForge("ores/tin");
+    public static final Tags.IOptionalNamedTag<Item> ORES_OSMIUM = tagForge("ores/osmium");
+    public static final Tags.IOptionalNamedTag<Item> ORES_URANIUM = tagForge("ores/uranium");
+    public static final Tags.IOptionalNamedTag<Item> ORES_ZINC = tagForge("ores/zinc");
 
-    public static final ITag.INamedTag<Item> ALUMINUM_BLOCK = ItemTags.makeWrapperTag("forge:storage_blocks/aluminum");
-    public static final ITag.INamedTag<Item> SILVER_BLOCK = ItemTags.makeWrapperTag("forge:storage_blocks/silver");
-    public static final ITag.INamedTag<Item> LEAD_BLOCK = ItemTags.makeWrapperTag("forge:storage_blocks/lead");
-    public static final ITag.INamedTag<Item> NICKEL_BLOCK = ItemTags.makeWrapperTag("forge:storage_blocks/nickel");
-    public static final ITag.INamedTag<Item> COPPER_BLOCK = ItemTags.makeWrapperTag("forge:storage_blocks/copper");
-    public static final ITag.INamedTag<Item> TIN_BLOCK = ItemTags.makeWrapperTag("forge:storage_blocks/tin");
-    public static final ITag.INamedTag<Item> OSMIUM_BLOCK = ItemTags.makeWrapperTag("forge:storage_blocks/osmium");
-    public static final ITag.INamedTag<Item> URANIUM_BLOCK = ItemTags.makeWrapperTag("forge:storage_blocks/uranium");
+    public static final Tags.IOptionalNamedTag<Item> ALUMINUM_BLOCK = tagForge("storage_blocks/aluminum");
+    public static final Tags.IOptionalNamedTag<Item> SILVER_BLOCK = tagForge("storage_blocks/silver");
+    public static final Tags.IOptionalNamedTag<Item> LEAD_BLOCK = tagForge("storage_blocks/lead");
+    public static final Tags.IOptionalNamedTag<Item> NICKEL_BLOCK = tagForge("storage_blocks/nickel");
+    public static final Tags.IOptionalNamedTag<Item> COPPER_BLOCK = tagForge("storage_blocks/copper");
+    public static final Tags.IOptionalNamedTag<Item> TIN_BLOCK = tagForge("storage_blocks/tin");
+    public static final Tags.IOptionalNamedTag<Item> OSMIUM_BLOCK = tagForge("storage_blocks/osmium");
+    public static final Tags.IOptionalNamedTag<Item> URANIUM_BLOCK = tagForge("storage_blocks/uranium");
+    public static final Tags.IOptionalNamedTag<Item> ZINC_BLOCK = tagForge("storage_blocks/zinc");
 
-    public static final ITag.INamedTag<Item> INGOT_ALUMINUM = ItemTags.makeWrapperTag("forge:ingots/aluminum");
-    public static final ITag.INamedTag<Item> INGOT_SILVER = ItemTags.makeWrapperTag("forge:ingots/silver");
-    public static final ITag.INamedTag<Item> INGOT_LEAD = ItemTags.makeWrapperTag("forge:ingots/lead");
-    public static final ITag.INamedTag<Item> INGOT_NICKEL = ItemTags.makeWrapperTag("forge:ingots/nickel");
-    public static final ITag.INamedTag<Item> INGOT_COPPER = ItemTags.makeWrapperTag("forge:ingots/copper");
-    public static final ITag.INamedTag<Item> INGOT_TIN = ItemTags.makeWrapperTag("forge:ingots/tin");
-    public static final ITag.INamedTag<Item> INGOT_OSMIUM = ItemTags.makeWrapperTag("forge:ingots/osmium");
-    public static final ITag.INamedTag<Item> INGOT_URANIUM = ItemTags.makeWrapperTag("forge:ingots/uranium");
+    public static final Tags.IOptionalNamedTag<Item> INGOT_ALUMINUM = tagForge("ingots/aluminum");
+    public static final Tags.IOptionalNamedTag<Item> INGOT_SILVER = tagForge("ingots/silver");
+    public static final Tags.IOptionalNamedTag<Item> INGOT_LEAD = tagForge("ingots/lead");
+    public static final Tags.IOptionalNamedTag<Item> INGOT_NICKEL = tagForge("ingots/nickel");
+    public static final Tags.IOptionalNamedTag<Item> INGOT_TIN = tagForge("ingots/tin");
+    public static final Tags.IOptionalNamedTag<Item> INGOT_OSMIUM = tagForge("ingots/osmium");
+    public static final Tags.IOptionalNamedTag<Item> INGOT_URANIUM = tagForge("ingots/uranium");
+    public static final Tags.IOptionalNamedTag<Item> INGOT_ZINC = tagForge("ingots/zinc");
 
-    public static final ITag.INamedTag<Item> NUGGET_ALUMINUM = ItemTags.makeWrapperTag("forge:nuggets/aluminum");
-    public static final ITag.INamedTag<Item> NUGGET_SILVER = ItemTags.makeWrapperTag("forge:nuggets/silver");
-    public static final ITag.INamedTag<Item> NUGGET_LEAD = ItemTags.makeWrapperTag("forge:nuggets/lead");
-    public static final ITag.INamedTag<Item> NUGGET_NICKEL = ItemTags.makeWrapperTag("forge:nuggets/nickel");
-    public static final ITag.INamedTag<Item> NUGGET_COPPER = ItemTags.makeWrapperTag("forge:nuggets/copper");
-    public static final ITag.INamedTag<Item> NUGGET_TIN = ItemTags.makeWrapperTag("forge:nuggets/tin");
-    public static final ITag.INamedTag<Item> NUGGET_OSMIUM = ItemTags.makeWrapperTag("forge:nuggets/osmium");
+    public static final Tags.IOptionalNamedTag<Item> NUGGET_ALUMINUM = tagForge("nuggets/aluminum");
+    public static final Tags.IOptionalNamedTag<Item> NUGGET_SILVER = tagForge("nuggets/silver");
+    public static final Tags.IOptionalNamedTag<Item> NUGGET_LEAD = tagForge("nuggets/lead");
+    public static final Tags.IOptionalNamedTag<Item> NUGGET_NICKEL = tagForge("nuggets/nickel");
+    public static final Tags.IOptionalNamedTag<Item> NUGGET_COPPER = tagForge("nuggets/copper");
+    public static final Tags.IOptionalNamedTag<Item> NUGGET_TIN = tagForge("nuggets/tin");
+    public static final Tags.IOptionalNamedTag<Item> NUGGET_OSMIUM = tagForge("nuggets/osmium");
+    public static final Tags.IOptionalNamedTag<Item> NUGGET_ZINC = tagForge("nuggets/zinc");
 
     public ItemTagGenerator(DataGenerator dataGenerator, BlockTagsProvider blockTagProvider, @Nullable ExistingFileHelper existingFileHelper) {
-        super(dataGenerator, blockTagProvider, BasicEndOres.modid, existingFileHelper);
+        super(dataGenerator, blockTagProvider, BasicEndOres.MODID, existingFileHelper);
     }
 
-    @SuppressWarnings("unchecked")
     @Override
-    public void registerTags()
+    protected void addTags()
     {
         copy(Tags.Blocks.ORES, Tags.Items.ORES);
 
@@ -66,7 +69,6 @@ public class ItemTagGenerator extends ItemTagsProvider
         copy(Tags.Blocks.ORES_GOLD, Tags.Items.ORES_GOLD);
         copy(Tags.Blocks.ORES_IRON, Tags.Items.ORES_IRON);
         copy(Tags.Blocks.ORES_LAPIS, Tags.Items.ORES_LAPIS);
-        copy(Tags.Blocks.ORES_QUARTZ, Tags.Items.ORES_QUARTZ);
         copy(Tags.Blocks.ORES_REDSTONE, Tags.Items.ORES_REDSTONE);
 
         copy(BlockTagGenerator.ORES_ALUMINUM, ORES_ALUMINUM);
@@ -77,6 +79,7 @@ public class ItemTagGenerator extends ItemTagsProvider
         copy(BlockTagGenerator.ORES_TIN, ORES_TIN);
         copy(BlockTagGenerator.ORES_OSMIUM, ORES_OSMIUM);
         copy(BlockTagGenerator.ORES_URANIUM, ORES_URANIUM);
+        copy(BlockTagGenerator.ORES_ZINC, ORES_ZINC);
 
         copy(BlockTagGenerator.ALUMINUM_BLOCK, ALUMINUM_BLOCK);
         copy(BlockTagGenerator.SILVER_BLOCK, SILVER_BLOCK);
@@ -86,24 +89,31 @@ public class ItemTagGenerator extends ItemTagsProvider
         copy(BlockTagGenerator.TIN_BLOCK, TIN_BLOCK);
         copy(BlockTagGenerator.OSMIUM_BLOCK, OSMIUM_BLOCK);
         copy(BlockTagGenerator.URANIUM_BLOCK, URANIUM_BLOCK);
+        copy(BlockTagGenerator.ZINC_BLOCK, ZINC_BLOCK);
 
-        getOrCreateBuilder(Tags.Items.INGOTS).addTags(INGOT_ALUMINUM, INGOT_SILVER, INGOT_LEAD, INGOT_NICKEL, INGOT_COPPER, INGOT_TIN, INGOT_OSMIUM, INGOT_URANIUM);
-        getOrCreateBuilder(INGOT_ALUMINUM).add(IngotList.aluminum_ingot);
-        getOrCreateBuilder(INGOT_SILVER).add(IngotList.silver_ingot);
-        getOrCreateBuilder(INGOT_LEAD).add(IngotList.lead_ingot);
-        getOrCreateBuilder(INGOT_NICKEL).add(IngotList.nickel_ingot);
-        getOrCreateBuilder(INGOT_COPPER).add(IngotList.copper_ingot);
-        getOrCreateBuilder(INGOT_TIN).add(IngotList.tin_ingot);
-        getOrCreateBuilder(INGOT_OSMIUM).add(IngotList.osmium_ingot);
-        getOrCreateBuilder(INGOT_URANIUM).add(IngotList.uranium_ingot);
+        tag(Tags.Items.INGOTS).addTags(INGOT_ALUMINUM, INGOT_SILVER, INGOT_LEAD, INGOT_NICKEL, INGOT_TIN, INGOT_OSMIUM, INGOT_URANIUM, INGOT_ZINC);
+        tag(INGOT_ALUMINUM).add(ModItems.ALUMINUM_INGOT.get());
+        tag(INGOT_SILVER).add(ModItems.SILVER_INGOT.get());
+        tag(INGOT_LEAD).add(ModItems.LEAD_INGOT.get());
+        tag(INGOT_NICKEL).add(ModItems.NICKEL_INGOT.get());
+        tag(INGOT_TIN).add(ModItems.TIN_INGOT.get());
+        tag(INGOT_OSMIUM).add(ModItems.OSMIUM_INGOT.get());
+        tag(INGOT_URANIUM).add(ModItems.URANIUM_INGOT.get());
+        tag(INGOT_ZINC).add(ModItems.ZINC_INGOT.get());
 
-        getOrCreateBuilder(Tags.Items.NUGGETS).addTags(NUGGET_ALUMINUM, NUGGET_SILVER, NUGGET_LEAD, NUGGET_NICKEL, NUGGET_COPPER, NUGGET_TIN, NUGGET_OSMIUM);
-        getOrCreateBuilder(NUGGET_ALUMINUM).add(IngotList.aluminum_nugget);
-        getOrCreateBuilder(NUGGET_SILVER).add(IngotList.silver_nugget);
-        getOrCreateBuilder(NUGGET_LEAD).add(IngotList.lead_nugget);
-        getOrCreateBuilder(NUGGET_NICKEL).add(IngotList.nickel_nugget);
-        getOrCreateBuilder(NUGGET_COPPER).add(IngotList.copper_nugget);
-        getOrCreateBuilder(NUGGET_TIN).add(IngotList.tin_nugget);
-        getOrCreateBuilder(NUGGET_OSMIUM).add(IngotList.osmium_nugget);
+        tag(Tags.Items.NUGGETS).addTags(NUGGET_ALUMINUM, NUGGET_SILVER, NUGGET_LEAD, NUGGET_NICKEL, NUGGET_COPPER, NUGGET_TIN, NUGGET_OSMIUM, NUGGET_ZINC);
+        tag(NUGGET_ALUMINUM).add(ModItems.ALUMINUM_NUGGET.get());
+        tag(NUGGET_SILVER).add(ModItems.SILVER_NUGGET.get());
+        tag(NUGGET_LEAD).add(ModItems.LEAD_NUGGET.get());
+        tag(NUGGET_NICKEL).add(ModItems.NICKEL_NUGGET.get());
+        tag(NUGGET_COPPER).add(ModItems.COPPER_NUGGET.get());
+        tag(NUGGET_TIN).add(ModItems.TIN_NUGGET.get());
+        tag(NUGGET_OSMIUM).add(ModItems.OSMIUM_NUGGET.get());
+        tag(NUGGET_ZINC).add(ModItems.ZINC_NUGGET.get());
+    }
+
+    private static Tags.IOptionalNamedTag<Item> tagForge(String name)
+    {
+        return ItemTags.createOptional(new ResourceLocation("forge", name));
     }
 }

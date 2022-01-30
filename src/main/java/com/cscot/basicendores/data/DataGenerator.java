@@ -8,12 +8,12 @@ import com.cscot.basicendores.data.models.ItemModelGenerator;
 import com.cscot.basicendores.data.recipes.CraftingRecipeBuilder;
 import com.cscot.basicendores.data.tags.BlockTagGenerator;
 import com.cscot.basicendores.data.tags.ItemTagGenerator;
-import net.minecraft.data.BlockTagsProvider;
+import net.minecraft.data.tags.BlockTagsProvider;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.fml.event.lifecycle.GatherDataEvent;
+import net.minecraftforge.forge.event.lifecycle.GatherDataEvent;
 
-@Mod.EventBusSubscriber(modid = BasicEndOres.modid, bus = Mod.EventBusSubscriber.Bus.MOD)
+@Mod.EventBusSubscriber(modid = BasicEndOres.MODID, bus = Mod.EventBusSubscriber.Bus.MOD)
 public class DataGenerator
 {
     @SubscribeEvent

@@ -96,6 +96,12 @@ public class OreGenerationConfig
     public static ForgeConfigSpec.IntValue uraniumMinHeight;
     public static ForgeConfigSpec.IntValue uraniumMaxHeight;
 
+    //Zinc Settings
+    public static ForgeConfigSpec.IntValue zincVeinSize;
+    public static ForgeConfigSpec.IntValue zincPerChunk;
+    public static ForgeConfigSpec.IntValue zincMinHeight;
+    public static ForgeConfigSpec.IntValue zincMaxHeight;
+
     //Ore Generation Toggle
     public static ForgeConfigSpec.BooleanValue emeraldGeneration;
     public static ForgeConfigSpec.BooleanValue diamondGeneration;
@@ -112,6 +118,7 @@ public class OreGenerationConfig
     public static ForgeConfigSpec.BooleanValue tinGeneration;
     public static ForgeConfigSpec.BooleanValue osmiumGeneration;
     public static ForgeConfigSpec.BooleanValue uraniumGeneration;
+    public static ForgeConfigSpec.BooleanValue zincGeneration;
 
 
     public static void Init(ForgeConfigSpec.Builder builder) {
@@ -135,8 +142,8 @@ public class OreGenerationConfig
                 .comment("Set Max Diamond Vein Size (Default = 8)")
                 .defineInRange("ore_generation.diamond.diamondVeinSize", 8, 0, 36);
         diamondPerChunk = builder
-                .comment("Set Diamond Spawn Chance (Default = 3)")
-                .defineInRange("ore_generation.diamond.diamondChance", 3, 0, 32);
+                .comment("Set Diamond Spawn Chance (Default = 2)")
+                .defineInRange("ore_generation.diamond.diamondChance", 2, 0, 32);
         diamondMinHeight = builder
                 .comment("Set Diamond Min Spawn Height (Default = 35)")
                 .defineInRange("ore_generation.diamond.diamondMinHeight", 35, 12, 75);
@@ -149,8 +156,8 @@ public class OreGenerationConfig
                 .comment("Set Max Redstone Vein Size (Default = 8)")
                 .defineInRange("ore_generation.redstone.redstoneVeinSize", 8, 0, 36);
         redstonePerChunk = builder
-                .comment("Set Redstone Spawn Chance (Default = 8)")
-                .defineInRange("ore_generation.redstone.redstoneChance", 8, 0, 64);
+                .comment("Set Redstone Spawn Chance (Default = 4)")
+                .defineInRange("ore_generation.redstone.redstoneChance", 4, 0, 64);
         redstoneMinHeight = builder
                 .comment("Set Redstone Min Spawn Height (Default = 45)")
                 .defineInRange("ore_generation.redstone.redstoneMinHeight", 45, 12, 75);
@@ -177,8 +184,8 @@ public class OreGenerationConfig
                 .comment("Set Max Coal Vein Size (Default = 17)")
                 .defineInRange("ore_generation.coal.coalVeinSize", 17, 0, 64);
         coalPerChunk = builder
-                .comment("Set Coal Spawn Chance (Default = 20)")
-                .defineInRange("ore_generation.coal.coalChance", 20, 0, 64);
+                .comment("Set Coal Spawn Chance (Default = 10)")
+                .defineInRange("ore_generation.coal.coalChance", 10, 0, 64);
         coalMinHeight = builder
                 .comment("Set Coal Min Spawn Height (Default = 25)")
                 .defineInRange("ore_generation.coal.coalMinHeight", 25, 12, 75);
@@ -191,8 +198,8 @@ public class OreGenerationConfig
                 .comment("Set Max Gold Vein Size (Default = 9)")
                 .defineInRange("ore_generation.gold.goldVeinSize", 9, 0, 64);
         goldPerChunk = builder
-                .comment("Set Gold Spawn Chance (Default = 4)")
-                .defineInRange("ore_generation.gold.goldChance", 4, 0, 64);
+                .comment("Set Gold Spawn Chance (Default = 2)")
+                .defineInRange("ore_generation.gold.goldChance", 2, 0, 64);
         goldMinHeight = builder
                 .comment("Set Gold Min Spawn Height (Default = 30)")
                 .defineInRange("ore_generation.gold.goldMinHeight", 30, 12, 75);
@@ -219,8 +226,8 @@ public class OreGenerationConfig
                 .comment("Set Max Iron Vein Size (Default = 8)")
                 .defineInRange("ore_generation.iron.ironVeinSize", 8, 0, 32);
         ironPerChunk = builder
-                .comment("Set Iron Spawn Chance (Default = 20)")
-                .defineInRange("ore_generation.iron.ironChance", 20, 0, 64);
+                .comment("Set Iron Spawn Chance (Default = 10)")
+                .defineInRange("ore_generation.iron.ironChance", 10, 0, 64);
         ironMinHeight = builder
                 .comment("Set Iron Min Spawn Height (Default = 40)")
                 .defineInRange("ore_generation.iron.ironMinHeight", 40, 12, 75);
@@ -326,6 +333,20 @@ public class OreGenerationConfig
                 .comment("Set Uranium Max Spawn Height (Default = 125)")
                 .defineInRange("ore_generation.uranium.uraniumMaxHeight", 65, 12, 75);
 
+        //Zinc Ore Values
+        zincVeinSize = builder
+                .comment("Set Max Zinc Vein Size (Default = 12)")
+                .defineInRange("ore_generation.zinc.zincVeinSize", 12, 0, 32);
+        zincPerChunk = builder
+                .comment("Set Zinc Spawn Chance (Default = 8)")
+                .defineInRange("ore_generation.zinc.zincChance", 8, 0, 64);
+        zincMinHeight = builder
+                .comment("Set Zinc Min Spawn Height (Default = 55)")
+                .defineInRange("ore_generation.zinc.zincMinHeight", 55, 0, 250);
+        zincMaxHeight = builder
+                .comment("Set Zinc Max Spawn Height (Default = 100)")
+                .defineInRange("ore_generation.zinc.zincMaxHeight", 100, 0, 256);
+
         //World Ore Generation
         emeraldGeneration = builder
                 .comment("Generate Emerald Ore")
@@ -372,5 +393,8 @@ public class OreGenerationConfig
         uraniumGeneration = builder
                 .comment("Generate Uranium Ore")
                 .define("ore_generation.world_generation.uranium", false);
+        zincGeneration = builder
+                .comment("Generate Zinc Ore")
+                .define("ore_generation.world_generation.zinc", false);
     }
 }

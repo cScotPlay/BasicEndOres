@@ -1,14 +1,14 @@
 package com.cscot.basicendores.util.events;
 
 import com.cscot.basicendores.config.OreProtectionConfig;
-import com.cscot.basicendores.objects.BlockOreBase;
 import com.cscot.basicendores.util.helpers.BlockListHelper;
-import net.minecraft.block.Block;
-import net.minecraft.enchantment.EnchantmentHelper;
-import net.minecraft.enchantment.Enchantments;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.World;
+import com.cscot.basicendores.world.level.block.ModOreBlock;
+import net.minecraft.core.BlockPos;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.enchantment.EnchantmentHelper;
+import net.minecraft.world.item.enchantment.Enchantments;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.Block;
 import net.minecraftforge.event.world.BlockEvent;
 import net.minecraftforge.eventbus.api.EventPriority;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -23,9 +23,9 @@ public class BlockOreEvent
     @SubscribeEvent (priority = EventPriority.HIGH, receiveCanceled = true)
     public static void BreakEvent(BlockEvent.BreakEvent event)
     {
-        PlayerEntity player = event.getPlayer();
-        int isSilkTouching = EnchantmentHelper.getEnchantmentLevel(Enchantments.SILK_TOUCH, player.getHeldItemMainhand());
-        World world = player.world;;
+        Player player = event.getPlayer();
+        int isSilkTouching = EnchantmentHelper.getEnchantmentLevel(Enchantments.SILK_TOUCH, player);
+        Level world = player.level;
         BlockPos pos = event.getPos();
         Block block = event.getState().getBlock();
 
@@ -42,11 +42,11 @@ public class BlockOreEvent
         }
     }
 
-    private static void guardOres(Block block, World world, BlockPos pos, PlayerEntity player)
+    private static void guardOres(Block block, Level world, BlockPos pos, Player player)
     {
         if(BlockListHelper.protectedOres(block))
         {
-            BlockOreBase.endermenGuards(world, pos, player);
+            ModOreBlock.endermenGuards(world, pos, player);
         }
     }
 }
