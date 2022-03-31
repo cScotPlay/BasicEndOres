@@ -8,6 +8,7 @@
     "item.beo.silver_nugget": "Silver Nugget",
     "item.beo.tin_nugget": "Tin Nugget",
     "item.beo.osmium_nugget": "Osmium Nugget",
+    "item.beo.zinc_nugget": "Zinc Nugget",
 
     "item.beo.aluminum_ingot": "Aluminum Ingot",
     "item.beo.copper_ingot": "Copper Ingot",
@@ -17,6 +18,16 @@
     "item.beo.tin_ingot": "Tin Ingot",
     "item.beo.osmium_ingot": "Osmium Ingot",
     "item.beo.uranium_ingot": "Uranium Ingot",
+    "item.beo.zinc_ingot": "Zinc Ingot",
+
+    "item.beo.raw_aluminum": "Raw Aluminum",
+    "item.beo.raw_lead": "Raw Lead",
+    "item.beo.raw_nickel": "Raw Nickel",
+    "item.beo.raw_silver": "Raw Silver",
+    "item.beo.raw_tin": "Raw Tin",
+    "item.beo.raw_osmium": "Raw Osmium",
+    "item.beo.raw_uranium": "Raw Uranium",
+    "item.beo.raw_zinc": "Raw Zinc",
 
     "block.beo.aluminum_block": "Aluminum Block",
     "block.beo.copper_block": "Copper Block",
@@ -26,6 +37,16 @@
     "block.beo.tin_block": "Tin Block",
     "block.beo.osmium_block": "Osmium Block",
     "block.beo.uranium_block": "Uranium Block",
+    "block.beo.zinc_block": "Zinc Block",
+
+    "block.beo.raw_aluminum_block": "Raw Aluminum Block",
+    "block.beo.raw_lead_block": "Raw Lead Block",
+    "block.beo.raw_nickel_block": "Raw Nickel Block",
+    "block.beo.raw_silver_block": "Raw Silver Block",
+    "block.beo.raw_tin_block": "Raw Tin Block",
+    "block.beo.raw_osmium_block": "Raw Osmium Block",
+    "block.beo.raw_uranium_block": "Raw Uranium Block",
+    "block.beo.raw_zinc_block": "Raw Zinc Block",
 
     "block.beo.end_aluminum_ore": "End Aluminum Ore",
     "block.beo.end_copper_ore": "End Copper Ore",
@@ -42,6 +63,7 @@
     "block.beo.end_coal_ore": "End Coal Ore",
     "block.beo.end_iron_ore": "End Iron Ore",
     "block.beo.end_gold_ore": "End Gold Ore",
+    "block.beo.end_zinc_ore": "End Zinc Ore",
 
     "tooltip.end_emerald_ore.tip": "§fFound between y%s to y%s",
     "tooltip.end_diamond_ore.tip": "§fFound between y%s to y%s",
@@ -58,6 +80,7 @@
     "tooltip.end_tin_ore.tip": "§fFound between y%s to y%s",
     "tooltip.end_osmium_ore.tip": "§fFound between y%s to y%s",
     "tooltip.end_uranium_ore.tip": "§fFound between y%s to y%s",
+    "tooltip.end_zinc_ore.tip": "§fFound between y%s to y%s",
     "tooltip.config.tip": "§4§oWorld Generation Disabled - Enable through Config File"
 
 }

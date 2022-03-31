@@ -14,13 +14,16 @@
     "issues": "https://github.com/cScotPlay/BasicEndOres/issues"
   },
 
-  "license": "CC0-1.0",
+  "license": "MIT License",
   "icon": "assets/beo/beo-logo.png",
 
   "environment": "*",
   "entrypoints": {
     "main": [
       "com.cscot.basicendores.BasicEndOres"
+    ],
+    "client": [
+      "com.cscot.basicendores.client.ClientHandler"
     ]
   },
 
@@ -29,8 +32,9 @@
   ],
 
   "depends": {
-    "fabricloader": ">=0.7.4",
+    "fabricloader": ">=0.12.12",
     "fabric": "*",
-    "minecraft": "1.16.x"
+    "minecraft": "1.18.x",
+    "java": ">=17"
   }
 }

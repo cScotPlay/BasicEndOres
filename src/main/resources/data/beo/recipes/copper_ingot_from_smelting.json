@@ -3,7 +3,7 @@
   "ingredient": {
     "item": "beo:end_copper_ore"
   },
-  "result": "beo:copper_ingot",
+  "result": "minecraft:copper_ingot",
   "experience": 0.7,
   "cookingtime": 200
 }

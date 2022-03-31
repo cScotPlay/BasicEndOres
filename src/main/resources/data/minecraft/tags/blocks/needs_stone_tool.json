@@ -1,0 +1,17 @@
+{
+  "replace": false,
+  "values": [
+    "beo:end_iron_ore",
+    "beo:end_lapis_ore",
+    "beo:end_copper_ore",
+    "beo:end_aluminum_ore",
+    "beo:raw_aluminum_block",
+    "beo:aluminum_block",
+    "beo:end_tin_ore",
+    "beo:raw_tin_block",
+    "beo:tin_block",
+    "beo:end_osmium_ore",
+    "beo:raw_osmium_block",
+    "beo:osmium_block"
+  ]
+}

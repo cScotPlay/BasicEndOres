@@ -1,6 +1,7 @@
 {
-  "parent": "minecraft:block/cube_all",
+  "parent": "beo:block/cube_overlay_all",
   "textures": {
-    "all": "beo:block/end_redstone_ore"
+    "all": "minecraft:block/end_stone",
+    "overlay": "beo:block/end_redstone_ore"
   }
 }

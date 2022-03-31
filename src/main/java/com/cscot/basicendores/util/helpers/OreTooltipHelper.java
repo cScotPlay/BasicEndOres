@@ -47,4 +47,7 @@ public class OreTooltipHelper
     public static class UraniumOreTip {
         public static String oreTip = "tooltip.end_uranium_ore.tip";
     }
+    public static class ZincOreTip {
+        public static String oreTip = "tooltip.end_zinc_ore.tip";
+    }
 }

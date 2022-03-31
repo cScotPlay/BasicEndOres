@@ -24,6 +24,7 @@ import net.minecraft.text.TranslatableText;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.MathHelper;
+import net.minecraft.util.math.intprovider.UniformIntProvider;
 import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
 
@@ -32,17 +33,24 @@ import java.util.Random;
 
 public class ModOreBlock extends OreBlock
 {
+    private final UniformIntProvider experienceDropped;
 
-    public ModOreBlock(String oreName)
+    public ModOreBlock(String oreName, UniformIntProvider experienceDropped, Integer pickaxeLevel)
     {
         super(FabricBlockSettings.of(Material.STONE)
-                .breakByTool(FabricToolTags.PICKAXES, 2)
                 .requiresTool()
                 .strength(3.0f, 3.0f)
+                .nonOpaque()
                 .sounds(BlockSoundGroup.NETHER_GOLD_ORE));
+        this.experienceDropped = experienceDropped;
         new Identifier(BasicEndOres.MOD_ID, oreName);
 
         ItemLists.add(oreName, new BlockItem(this, new Item.Settings().group(BasicEndOres.ITEMGROUP)));
+    }
+
+    public ModOreBlock(String oreName, Integer pickaxeLevel)
+    {
+        this(oreName, UniformIntProvider.create(0, 0), pickaxeLevel);
     }
 
     @Override
@@ -109,22 +117,26 @@ public class ModOreBlock extends OreBlock
             if (!ModConfig.uraniumGeneration){
                 tooltip.add(new TranslatableText("tooltip.config.tip"));}
             else tooltip.add(new TranslatableText(UraniumOreTip.oreTip, ModConfig.uraniumMinHeight, ModConfig.uraniumMaxHeight));}
+        else if (this == OreBlockLists.END_ZINC_ORE){
+            if (!ModConfig.zincGeneration){
+                tooltip.add(new TranslatableText("tooltip.config.tip"));}
+            else tooltip.add(new TranslatableText(ZincOreTip.oreTip, ModConfig.zincMinHeight, ModConfig.zincMaxHeight));}
     }
 
-    @Override  //Updated getExperience
-    protected int getExperienceWhenMined(Random random) {
-        if (this == OreBlockLists.END_COAL_ORE) {
-            return MathHelper.nextInt(random, 0, 2);
-        } else if (this == OreBlockLists.END_DIAMOND_ORE) {
-            return MathHelper.nextInt(random, 3, 7);
-        } else if (this == OreBlockLists.END_EMERALD_ORE) {
-            return MathHelper.nextInt(random, 3, 7);
-        } else if (this == OreBlockLists.END_LAPIS_ORE) {
-            return MathHelper.nextInt(random, 2, 5);
-        } else {
-            return this == OreBlockLists.END_REDSTONE_ORE ? MathHelper.nextInt(random, 2, 5) : 0;
-        }
-    }
+//    @Override  //Updated getExperience
+//    protected int getExperienceWhenMined(Random random) {
+//        if (this == OreBlockLists.END_COAL_ORE) {
+//            return MathHelper.nextInt(random, 0, 2);
+//        } else if (this == OreBlockLists.END_DIAMOND_ORE) {
+//            return MathHelper.nextInt(random, 3, 7);
+//        } else if (this == OreBlockLists.END_EMERALD_ORE) {
+//            return MathHelper.nextInt(random, 3, 7);
+//        } else if (this == OreBlockLists.END_LAPIS_ORE) {
+//            return MathHelper.nextInt(random, 2, 5);
+//        } else {
+//            return this == OreBlockLists.END_REDSTONE_ORE ? MathHelper.nextInt(random, 2, 5) : 0;
+//        }
+//    }
 
     @Override
     public void onStacksDropped(BlockState state, ServerWorld world, BlockPos pos, ItemStack stack) {

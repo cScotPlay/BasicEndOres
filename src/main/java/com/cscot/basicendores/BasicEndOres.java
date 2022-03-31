@@ -4,7 +4,8 @@ import com.cscot.basicendores.api.OreBlockLists;
 import com.cscot.basicendores.config.ModConfig;
 import com.cscot.basicendores.util.handlers.ConfigHandler;
 import com.cscot.basicendores.util.handlers.RegistryHandler;
-import com.cscot.basicendores.world.gen.feature.ModConfiguredFeatures;
+import com.cscot.basicendores.world.gen.feature.ModOreConfiguredFeatures;
+import com.cscot.basicendores.world.gen.feature.ModOrePlacedFeature;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder;
 import net.minecraft.item.Item;
@@ -38,7 +39,8 @@ public class BasicEndOres implements ModInitializer {
 		RegistryHandler.onItemRegistry();
 		RegistryHandler.onIngotRegistry();
 
-		ModConfiguredFeatures.initModFeatures();
+		ModOreConfiguredFeatures.initModOreConfiguredFeatures();
+		ModOrePlacedFeature.initOrePlacedFeatures();
 
 		LOGGER.info("Basic End Ores setup done!");
 	}

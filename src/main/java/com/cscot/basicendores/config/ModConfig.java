@@ -136,13 +136,13 @@ public class ModConfig
     public static int goldVeinSize = 9;
 
     @IConfig(config = "beo_config", category = "goldOre", key = "goldPerChunk", comment = "Set Gold Spawn Chance (Default: 4)")
-    public static int goldPerChunk = 30;
+    public static int goldPerChunk = 4;
 
     @IConfig(config = "beo_config", category = "goldOre", key = "goldMinHeight", comment = "Set Gold Min Spawn Height (Default: 30)")
-    public static int goldMinHeight = 60;
+    public static int goldMinHeight = 30;
 
     @IConfig(config = "beo_config", category = "goldOre", key = "goldMaxHeight", comment = "Set Gold Max Spawn Height (Default: 60)")
-    public static int goldMaxHeight = 60;
+    public static int goldMaxHeight = 65;
 
 
 
@@ -220,7 +220,7 @@ public class ModConfig
 
     //Copper Ore Settings
     @IConfig(config = "beo_config", category = "copperOre", key = "copperGeneration", comment = "Generate Copper Ore")
-    public static boolean copperGeneration = false;
+    public static boolean copperGeneration = true;
 
     @IConfig(config = "beo_config", category = "copperOre", key = "copperVeinSize", comment = "Set Max Copper Vein Size (Default: 8)")
     public static int copperVeinSize = 8;
@@ -301,8 +301,25 @@ public class ModConfig
     public static int uraniumPerChunk = 6;
 
     @IConfig(config = "beo_config", category = "uraniumOre", key = "uraniumMinHeight", comment = "Set Uranium Min Spawn Height (Default: 90)")
-    public static int uraniumMinHeight = 90;
+    public static int uraniumMinHeight = 65;
 
     @IConfig(config = "beo_config", category = "uraniumOre", key = "uraniumMaxHeight", comment = "Set Uranium Max Spawn Height (Default: 65)")
-    public static int uraniumMaxHeight = 65;
+    public static int uraniumMaxHeight = 90;
+
+
+    //Zinc Ore Settings
+    @IConfig(config = "beo_config", category = "zincOre", key = "zincGeneration", comment = "Generate Zinc Ore")
+    public static boolean zincGeneration = false;
+
+    @IConfig(config = "beo_config", category = "zincOre", key = "zincVeinSize", comment = "Set Max Zinc Vein Size (Default: 12)")
+    public static int zincVeinSize = 6;
+
+    @IConfig(config = "beo_config", category = "zincOre", key = "zincPerChunk", comment = "Set Zinc Spawn Chance (Default: 8)")
+    public static int zincPerChunk = 6;
+
+    @IConfig(config = "beo_config", category = "zincOre", key = "zincMinHeight", comment = "Set Zinc Min Spawn Height (Default: 55)")
+    public static int zincMinHeight = 55;
+
+    @IConfig(config = "beo_config", category = "zincOre", key = "zincMaxHeight", comment = "Set Zinc Max Spawn Height (Default: 100)")
+    public static int zincMaxHeight = 90;
 }
