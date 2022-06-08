@@ -39,7 +39,7 @@ public class BasicEndOres implements ModInitializer {
 		RegistryHandler.onItemRegistry();
 		RegistryHandler.onIngotRegistry();
 
-		ModOreConfiguredFeatures.initModOreConfiguredFeatures();
+		//ModOreConfiguredFeatures.initModOreConfiguredFeatures();
 		ModOrePlacedFeature.initOrePlacedFeatures();
 
 		LOGGER.info("Basic End Ores setup done!");
