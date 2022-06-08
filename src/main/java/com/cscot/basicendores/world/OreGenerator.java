@@ -25,52 +25,52 @@ public class OreGenerator
         if(event.getCategory() == Biome.BiomeCategory.THEEND)
         {
             if(OreGenerationConfig.emeraldGeneration.get())
-                builder.addFeature(GenerationStep.Decoration.UNDERGROUND_ORES, ModOrePlacedFeature.ORE_EMERALD_END);
+                builder.addFeature(GenerationStep.Decoration.UNDERGROUND_ORES, ModOrePlacedFeature.ORE_EMERALD_PLACED_FEATURE);
 
             if(OreGenerationConfig.diamondGeneration.get())
-                builder.addFeature(GenerationStep.Decoration.UNDERGROUND_ORES, ModOrePlacedFeature.ORE_DIAMOND_END);
+                builder.addFeature(GenerationStep.Decoration.UNDERGROUND_ORES, ModOrePlacedFeature.ORE_DIAMOND_PLACED_FEATURE);
 
             if(OreGenerationConfig.redstoneGeneration.get())
-                builder.addFeature(GenerationStep.Decoration.UNDERGROUND_ORES, ModOrePlacedFeature.ORE_REDSTONE_END);
+                builder.addFeature(GenerationStep.Decoration.UNDERGROUND_ORES, ModOrePlacedFeature.ORE_REDSTONE_PLACED_FEATURE);
 
             if(OreGenerationConfig.lapisGeneration.get())
-                builder.addFeature(GenerationStep.Decoration.UNDERGROUND_ORES, ModOrePlacedFeature.ORE_LAPIS_END);
+                builder.addFeature(GenerationStep.Decoration.UNDERGROUND_ORES, ModOrePlacedFeature.ORE_LAPIS_PLACED_FEATURE);
 
             if(OreGenerationConfig.coalGeneration.get())
-                builder.addFeature(GenerationStep.Decoration.UNDERGROUND_ORES, ModOrePlacedFeature.ORE_COAL_END);
+                builder.addFeature(GenerationStep.Decoration.UNDERGROUND_ORES, ModOrePlacedFeature.ORE_COAL_PLACED_FEATURE);
 
             if(OreGenerationConfig.silverGeneration.get())
-                builder.addFeature(GenerationStep.Decoration.UNDERGROUND_ORES, ModOrePlacedFeature.ORE_SILVER_END);
+                builder.addFeature(GenerationStep.Decoration.UNDERGROUND_ORES, ModOrePlacedFeature.ORE_SILVER_PLACED_FEATURE);
 
             if(OreGenerationConfig.goldGeneration.get())
-                builder.addFeature(GenerationStep.Decoration.UNDERGROUND_ORES, ModOrePlacedFeature.ORE_GOLD_END);
+                builder.addFeature(GenerationStep.Decoration.UNDERGROUND_ORES, ModOrePlacedFeature.ORE_GOLD_PLACED_FEATURE);
 
             if(OreGenerationConfig.ironGeneration.get())
-                builder.addFeature(GenerationStep.Decoration.UNDERGROUND_ORES, ModOrePlacedFeature.ORE_IRON_END);
+                builder.addFeature(GenerationStep.Decoration.UNDERGROUND_ORES, ModOrePlacedFeature.ORE_IRON_PLACED_FEATURE);
 
             if(OreGenerationConfig.leadGeneration.get())
-                builder.addFeature(GenerationStep.Decoration.UNDERGROUND_ORES, ModOrePlacedFeature.ORE_LEAD_END);
+                builder.addFeature(GenerationStep.Decoration.UNDERGROUND_ORES, ModOrePlacedFeature.ORE_LEAD_PLACED_FEATURE);
 
             if(OreGenerationConfig.nickelGeneration.get())
-                builder.addFeature(GenerationStep.Decoration.UNDERGROUND_ORES, ModOrePlacedFeature.ORE_NICKEL_END);
+                builder.addFeature(GenerationStep.Decoration.UNDERGROUND_ORES, ModOrePlacedFeature.ORE_NICKEL_PLACED_FEATURE);
 
             if(OreGenerationConfig.copperGeneration.get())
-                builder.addFeature(GenerationStep.Decoration.UNDERGROUND_ORES, ModOrePlacedFeature.ORE_COPPER_END);
+                builder.addFeature(GenerationStep.Decoration.UNDERGROUND_ORES, ModOrePlacedFeature.ORE_COPPER_PLACED_FEATURE);
 
             if(OreGenerationConfig.aluminumGeneration.get())
-                builder.addFeature(GenerationStep.Decoration.UNDERGROUND_ORES, ModOrePlacedFeature.ORE_ALUMINUM_END);
+                builder.addFeature(GenerationStep.Decoration.UNDERGROUND_ORES, ModOrePlacedFeature.ORE_ALUMINUM_PLACED_FEATURE);
 
             if(OreGenerationConfig.tinGeneration.get())
-                builder.addFeature(GenerationStep.Decoration.UNDERGROUND_ORES, ModOrePlacedFeature.ORE_TIN_END);
+                builder.addFeature(GenerationStep.Decoration.UNDERGROUND_ORES, ModOrePlacedFeature.ORE_TIN_PLACED_FEATURE);
 
             if(OreGenerationConfig.osmiumGeneration.get())
-                builder.addFeature(GenerationStep.Decoration.UNDERGROUND_ORES, ModOrePlacedFeature.ORE_OSMIUM_END);
+                builder.addFeature(GenerationStep.Decoration.UNDERGROUND_ORES, ModOrePlacedFeature.ORE_OSMIUM_PLACED_FEATURE);
 
             if(OreGenerationConfig.uraniumGeneration.get())
-                builder.addFeature(GenerationStep.Decoration.UNDERGROUND_ORES, ModOrePlacedFeature.ORE_URANIUM_END);
+                builder.addFeature(GenerationStep.Decoration.UNDERGROUND_ORES, ModOrePlacedFeature.ORE_URANIUM_PLACED_FEATURE);
 
             if(OreGenerationConfig.zincGeneration.get()){
-                builder.addFeature(GenerationStep.Decoration.UNDERGROUND_ORES, ModOrePlacedFeature.ORE_ZINC_END);
+                builder.addFeature(GenerationStep.Decoration.UNDERGROUND_ORES, ModOrePlacedFeature.ORE_ZINC_PLACED_FEATURE);
             }
         }
     }

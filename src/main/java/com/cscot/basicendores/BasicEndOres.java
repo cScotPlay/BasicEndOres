@@ -64,8 +64,6 @@ public class BasicEndOres
     //This used to be the PreInit
     private void setup(FMLCommonSetupEvent event)
     {
-        ModOreConfiguredFeatures.initModFeatures();
-        ModOrePlacedFeature.initOrePlacedFeatures();
         ProtectedListInit();
     }
 

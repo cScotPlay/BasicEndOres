@@ -7,6 +7,7 @@ import net.minecraft.data.tags.BlockTagsProvider;
 import net.minecraft.data.tags.ItemTagsProvider;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.ItemTags;
+import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
 import net.minecraftforge.common.Tags;
 import net.minecraftforge.common.data.ExistingFileHelper;
@@ -15,44 +16,44 @@ import javax.annotation.Nullable;
 
 public class ItemTagGenerator extends ItemTagsProvider
 {
-    public static final Tags.IOptionalNamedTag<Item> ORES_ALUMINUM = tagForge("ores/aluminum");
-    public static final Tags.IOptionalNamedTag<Item> ORES_SILVER = tagForge("ores/silver");
-    public static final Tags.IOptionalNamedTag<Item> ORES_LEAD = tagForge("ores/lead");
-    public static final Tags.IOptionalNamedTag<Item> ORES_NICKEL = tagForge("ores/nickel");
-    public static final Tags.IOptionalNamedTag<Item> ORES_GOLD = tagForge("ores/gold");
-    public static final Tags.IOptionalNamedTag<Item> ORES_COPPER = tagForge("ores/copper");
-    public static final Tags.IOptionalNamedTag<Item> ORES_TIN = tagForge("ores/tin");
-    public static final Tags.IOptionalNamedTag<Item> ORES_OSMIUM = tagForge("ores/osmium");
-    public static final Tags.IOptionalNamedTag<Item> ORES_URANIUM = tagForge("ores/uranium");
-    public static final Tags.IOptionalNamedTag<Item> ORES_ZINC = tagForge("ores/zinc");
+    public static final TagKey<Item> ORES_ALUMINUM = tagForge("ores/aluminum");
+    public static final TagKey<Item> ORES_SILVER = tagForge("ores/silver");
+    public static final TagKey<Item> ORES_LEAD = tagForge("ores/lead");
+    public static final TagKey<Item> ORES_NICKEL = tagForge("ores/nickel");
+    public static final TagKey<Item> ORES_GOLD = tagForge("ores/gold");
+    public static final TagKey<Item> ORES_COPPER = tagForge("ores/copper");
+    public static final TagKey<Item> ORES_TIN = tagForge("ores/tin");
+    public static final TagKey<Item> ORES_OSMIUM = tagForge("ores/osmium");
+    public static final TagKey<Item> ORES_URANIUM = tagForge("ores/uranium");
+    public static final TagKey<Item> ORES_ZINC = tagForge("ores/zinc");
 
-    public static final Tags.IOptionalNamedTag<Item> ALUMINUM_BLOCK = tagForge("storage_blocks/aluminum");
-    public static final Tags.IOptionalNamedTag<Item> SILVER_BLOCK = tagForge("storage_blocks/silver");
-    public static final Tags.IOptionalNamedTag<Item> LEAD_BLOCK = tagForge("storage_blocks/lead");
-    public static final Tags.IOptionalNamedTag<Item> NICKEL_BLOCK = tagForge("storage_blocks/nickel");
-    public static final Tags.IOptionalNamedTag<Item> COPPER_BLOCK = tagForge("storage_blocks/copper");
-    public static final Tags.IOptionalNamedTag<Item> TIN_BLOCK = tagForge("storage_blocks/tin");
-    public static final Tags.IOptionalNamedTag<Item> OSMIUM_BLOCK = tagForge("storage_blocks/osmium");
-    public static final Tags.IOptionalNamedTag<Item> URANIUM_BLOCK = tagForge("storage_blocks/uranium");
-    public static final Tags.IOptionalNamedTag<Item> ZINC_BLOCK = tagForge("storage_blocks/zinc");
+    public static final TagKey<Item> ALUMINUM_BLOCK = tagForge("storage_blocks/aluminum");
+    public static final TagKey<Item> SILVER_BLOCK = tagForge("storage_blocks/silver");
+    public static final TagKey<Item> LEAD_BLOCK = tagForge("storage_blocks/lead");
+    public static final TagKey<Item> NICKEL_BLOCK = tagForge("storage_blocks/nickel");
+    public static final TagKey<Item> COPPER_BLOCK = tagForge("storage_blocks/copper");
+    public static final TagKey<Item> TIN_BLOCK = tagForge("storage_blocks/tin");
+    public static final TagKey<Item> OSMIUM_BLOCK = tagForge("storage_blocks/osmium");
+    public static final TagKey<Item> URANIUM_BLOCK = tagForge("storage_blocks/uranium");
+    public static final TagKey<Item> ZINC_BLOCK = tagForge("storage_blocks/zinc");
 
-    public static final Tags.IOptionalNamedTag<Item> INGOT_ALUMINUM = tagForge("ingots/aluminum");
-    public static final Tags.IOptionalNamedTag<Item> INGOT_SILVER = tagForge("ingots/silver");
-    public static final Tags.IOptionalNamedTag<Item> INGOT_LEAD = tagForge("ingots/lead");
-    public static final Tags.IOptionalNamedTag<Item> INGOT_NICKEL = tagForge("ingots/nickel");
-    public static final Tags.IOptionalNamedTag<Item> INGOT_TIN = tagForge("ingots/tin");
-    public static final Tags.IOptionalNamedTag<Item> INGOT_OSMIUM = tagForge("ingots/osmium");
-    public static final Tags.IOptionalNamedTag<Item> INGOT_URANIUM = tagForge("ingots/uranium");
-    public static final Tags.IOptionalNamedTag<Item> INGOT_ZINC = tagForge("ingots/zinc");
+    public static final TagKey<Item> INGOT_ALUMINUM = tagForge("ingots/aluminum");
+    public static final TagKey<Item> INGOT_SILVER = tagForge("ingots/silver");
+    public static final TagKey<Item> INGOT_LEAD = tagForge("ingots/lead");
+    public static final TagKey<Item> INGOT_NICKEL = tagForge("ingots/nickel");
+    public static final TagKey<Item> INGOT_TIN = tagForge("ingots/tin");
+    public static final TagKey<Item> INGOT_OSMIUM = tagForge("ingots/osmium");
+    public static final TagKey<Item> INGOT_URANIUM = tagForge("ingots/uranium");
+    public static final TagKey<Item> INGOT_ZINC = tagForge("ingots/zinc");
 
-    public static final Tags.IOptionalNamedTag<Item> NUGGET_ALUMINUM = tagForge("nuggets/aluminum");
-    public static final Tags.IOptionalNamedTag<Item> NUGGET_SILVER = tagForge("nuggets/silver");
-    public static final Tags.IOptionalNamedTag<Item> NUGGET_LEAD = tagForge("nuggets/lead");
-    public static final Tags.IOptionalNamedTag<Item> NUGGET_NICKEL = tagForge("nuggets/nickel");
-    public static final Tags.IOptionalNamedTag<Item> NUGGET_COPPER = tagForge("nuggets/copper");
-    public static final Tags.IOptionalNamedTag<Item> NUGGET_TIN = tagForge("nuggets/tin");
-    public static final Tags.IOptionalNamedTag<Item> NUGGET_OSMIUM = tagForge("nuggets/osmium");
-    public static final Tags.IOptionalNamedTag<Item> NUGGET_ZINC = tagForge("nuggets/zinc");
+    public static final TagKey<Item> NUGGET_ALUMINUM = tagForge("nuggets/aluminum");
+    public static final TagKey<Item> NUGGET_SILVER = tagForge("nuggets/silver");
+    public static final TagKey<Item> NUGGET_LEAD = tagForge("nuggets/lead");
+    public static final TagKey<Item> NUGGET_NICKEL = tagForge("nuggets/nickel");
+    public static final TagKey<Item> NUGGET_COPPER = tagForge("nuggets/copper");
+    public static final TagKey<Item> NUGGET_TIN = tagForge("nuggets/tin");
+    public static final TagKey<Item> NUGGET_OSMIUM = tagForge("nuggets/osmium");
+    public static final TagKey<Item> NUGGET_ZINC = tagForge("nuggets/zinc");
 
     public ItemTagGenerator(DataGenerator dataGenerator, BlockTagsProvider blockTagProvider, @Nullable ExistingFileHelper existingFileHelper) {
         super(dataGenerator, blockTagProvider, BasicEndOres.MODID, existingFileHelper);
@@ -112,8 +113,8 @@ public class ItemTagGenerator extends ItemTagsProvider
         tag(NUGGET_ZINC).add(ModItems.ZINC_NUGGET.get());
     }
 
-    private static Tags.IOptionalNamedTag<Item> tagForge(String name)
+    private static TagKey<Item> tagForge(String name)
     {
-        return ItemTags.createOptional(new ResourceLocation("forge", name));
+        return ItemTags.create(new ResourceLocation("forge", name));
     }
 }
