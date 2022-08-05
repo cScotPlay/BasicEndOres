@@ -18,7 +18,7 @@ import java.util.function.Predicate;
 
 public class BlockTagGenerator extends BlockTagsProvider
 {
-    protected final Predicate<Block> ORE_BLOCKS = registry -> BasicEndOres.MODID.equals(registry.getRegistryName().getNamespace());
+    protected final Predicate<Block> ORE_BLOCKS = registry -> BasicEndOres.MODID.equals(registry.toString());
 
     public static final TagKey<Block> ORES_ALUMINUM = tagForge("ores/aluminum");
     public static final TagKey<Block> ORES_GOLD = tagForge("ores/gold");
@@ -51,8 +51,8 @@ public class BlockTagGenerator extends BlockTagsProvider
         // ***************************************************************************** //
         //  Forge Tags
         // ***************************************************************************** //
-        tag(ORES).add(registry.stream().filter(ORE_BLOCKS).filter(b -> b instanceof ModOreBlock).sorted(Comparator.comparing(Block::getRegistryName)).toArray(Block[]::new));
-        tag(STORAGE_BLOCKS).add(registry.stream().filter(ORE_BLOCKS).filter(b -> b instanceof ModMetalBlock).sorted(Comparator.comparing(Block::getRegistryName)).toArray(Block[]::new));
+        tag(ORES).add(registry.stream().filter(ORE_BLOCKS).filter(b -> b instanceof ModOreBlock).sorted(Comparator.comparing(Block::toString)).toArray(Block[]::new));
+        tag(STORAGE_BLOCKS).add(registry.stream().filter(ORE_BLOCKS).filter(b -> b instanceof ModMetalBlock).sorted(Comparator.comparing(Block::toString)).toArray(Block[]::new));
 
         tag(ORES_COAL).add(ModBlocks.END_COAL_ORE.get());
         tag(ORES_DIAMOND).add(ModBlocks.END_DIAMOND_ORE.get());
@@ -95,10 +95,10 @@ public class BlockTagGenerator extends BlockTagsProvider
         this.tag(BlockTags.LAPIS_ORES).add(ModBlocks.END_LAPIS_ORE.get());
 
         ///// MINEABLE WITH PICKAXE ///////
-        tag(BlockTags.MINEABLE_WITH_PICKAXE).add(registry.stream().filter(ORE_BLOCKS).filter(b -> b instanceof ModOreBlock).sorted(Comparator.comparing(Block::getRegistryName)).toArray(Block[]::new));
-        tag(BlockTags.MINEABLE_WITH_PICKAXE).add(registry.stream().filter(ORE_BLOCKS).filter(b -> b instanceof ModMetalBlock).sorted(Comparator.comparing(Block::getRegistryName)).toArray(Block[]::new));
-        tag(BlockTags.MINEABLE_WITH_PICKAXE).add(registry.stream().filter(ORE_BLOCKS).filter(b -> b instanceof ModRawOreBlock).sorted(Comparator.comparing(Block::getRegistryName)).toArray(Block[]::new));
-        tag(BlockTags.MINEABLE_WITH_PICKAXE).add(registry.stream().filter(ORE_BLOCKS).filter(b -> b instanceof ModRedstoneOreBlock).sorted(Comparator.comparing(Block::getRegistryName)).toArray(Block[]::new));
+        tag(BlockTags.MINEABLE_WITH_PICKAXE).add(registry.stream().filter(ORE_BLOCKS).filter(b -> b instanceof ModOreBlock).sorted(Comparator.comparing(Block::toString)).toArray(Block[]::new));
+        tag(BlockTags.MINEABLE_WITH_PICKAXE).add(registry.stream().filter(ORE_BLOCKS).filter(b -> b instanceof ModMetalBlock).sorted(Comparator.comparing(Block::toString)).toArray(Block[]::new));
+        tag(BlockTags.MINEABLE_WITH_PICKAXE).add(registry.stream().filter(ORE_BLOCKS).filter(b -> b instanceof ModRawOreBlock).sorted(Comparator.comparing(Block::toString)).toArray(Block[]::new));
+        tag(BlockTags.MINEABLE_WITH_PICKAXE).add(registry.stream().filter(ORE_BLOCKS).filter(b -> b instanceof ModRedstoneOreBlock).sorted(Comparator.comparing(Block::toString)).toArray(Block[]::new));
 
         this.tag(BlockTags.NEEDS_IRON_TOOL).add(
                 ModBlocks.END_DIAMOND_ORE.get(),

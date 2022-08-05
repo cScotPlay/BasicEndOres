@@ -25,7 +25,7 @@ public class CraftingRecipeBuilder extends RecipeProvider
     }
 
     @Override
-    protected void saveAdvancement(HashCache cache, JsonObject jsonObject, Path advancementJson) {
+    protected void saveAdvancement(CachedOutput p_236368_, JsonObject p_236369_, Path p_236370_) {
         //Overrides the writing of advancement for the recipes.
     }
 
@@ -97,7 +97,7 @@ public class CraftingRecipeBuilder extends RecipeProvider
 
     private static void shapedIngot(Consumer<FinishedRecipe> consumer, Item craftedItem, Item inputItem)
     {
-        String ingotName = craftedItem.getRegistryName().getPath();
+        String ingotName = craftedItem.asItem().toString();
 
         ShapedRecipeBuilder.shaped(craftedItem)
                 .define('#',inputItem)
@@ -106,12 +106,12 @@ public class CraftingRecipeBuilder extends RecipeProvider
                 .pattern("###")
                 .group(ingotName)
                 .unlockedBy("has_" + ingotName, has(inputItem))
-                .save(consumer, new ResourceLocation(MODID, ingotName + "_from_" + inputItem.getRegistryName().getPath()));
+                .save(consumer, new ResourceLocation(MODID, ingotName + "_from_" + inputItem.asItem().toString()));
     }
 
     private static void shapedMetalBlocks(Consumer<FinishedRecipe> consumer, Block craftedItem, Item inputItem)
     {
-        String blockName = craftedItem.getRegistryName().getPath();
+        String blockName = craftedItem.asItem().toString();
 
         ShapedRecipeBuilder.shaped(craftedItem)
                 .define('#',inputItem)
@@ -120,12 +120,12 @@ public class CraftingRecipeBuilder extends RecipeProvider
                 .pattern("###")
                 .group(blockName)
                 .unlockedBy("has_" + blockName, has(inputItem))
-                .save(consumer, new ResourceLocation(MODID, blockName + "_from_" + inputItem.getRegistryName().getPath()));
+                .save(consumer, new ResourceLocation(MODID, blockName + "_from_" + inputItem.asItem().toString()));
     }
 
     private static void shapelessNuggetsIngots(Consumer<FinishedRecipe> consumer, Item craftedItem, Item inputItem)
     {
-        String nuggetName = craftedItem.getRegistryName().getPath();
+        String nuggetName = craftedItem.asItem().toString();
         ShapelessRecipeBuilder.shapeless(craftedItem, 9)
                 .requires(inputItem)
                 .unlockedBy(nuggetName + "_from_ingot", has(inputItem))
@@ -134,7 +134,7 @@ public class CraftingRecipeBuilder extends RecipeProvider
 
     private static void shapelessIngots(Consumer<FinishedRecipe> consumer, Item craftedItem, Block inputBlock)
     {
-        String ingotName = craftedItem.getRegistryName().getPath();
+        String ingotName = craftedItem.asItem().toString();
         ShapelessRecipeBuilder.shapeless(craftedItem, 9)
                 .requires(inputBlock)
                 .unlockedBy(ingotName + "_from_block", has(inputBlock))
@@ -144,22 +144,22 @@ public class CraftingRecipeBuilder extends RecipeProvider
     private static void smeltingOres(Consumer<FinishedRecipe> consumer, Item smeltedItem, Item inputOre)
     {
         SimpleCookingRecipeBuilder.smelting(Ingredient.of(inputOre), smeltedItem, 0.7F, 200)
-                .unlockedBy("has_" + inputOre.getRegistryName().getPath(), has(inputOre.asItem()))
-                .save(consumer, new ResourceLocation(MODID, smeltedItem.getRegistryName().getPath() + "_from_smelting"));
+                .unlockedBy("has_" + inputOre.asItem().toString(), has(inputOre.asItem()))
+                .save(consumer, new ResourceLocation(MODID, smeltedItem.asItem().toString() + "_from_smelting"));
 
         SimpleCookingRecipeBuilder.blasting(Ingredient.of(inputOre), smeltedItem, 0.7F, 100)
-                .unlockedBy("has_" + inputOre.getRegistryName().getPath(), has(inputOre.asItem()))
-                .save(consumer, new ResourceLocation(MODID, smeltedItem.getRegistryName().getPath() + "_from_blasting"));
+                .unlockedBy("has_" + inputOre.asItem().toString(), has(inputOre.asItem()))
+                .save(consumer, new ResourceLocation(MODID, smeltedItem.asItem().toString() + "_from_blasting"));
     }
 
     private static void smeltingRawOre(Consumer<FinishedRecipe> consumer, Item smeltedItem, Item inputOre)
     {
         SimpleCookingRecipeBuilder.smelting(Ingredient.of(inputOre), smeltedItem, 0.7F, 200)
-                .unlockedBy("has_" + inputOre.getRegistryName().getPath(), has(inputOre.asItem()))
-                .save(consumer, new ResourceLocation(MODID, smeltedItem.getRegistryName().getPath() + "_from_smelting_raw"));
+                .unlockedBy("has_" + inputOre.asItem().toString(), has(inputOre.asItem()))
+                .save(consumer, new ResourceLocation(MODID, smeltedItem.asItem().toString() + "_from_smelting_raw"));
 
         SimpleCookingRecipeBuilder.blasting(Ingredient.of(inputOre), smeltedItem, 0.7F, 100)
-                .unlockedBy("has_" + inputOre.getRegistryName().getPath(), has(inputOre.asItem()))
-                .save(consumer, new ResourceLocation(MODID, smeltedItem.getRegistryName().getPath() + "_from_blasting_raw"));
+                .unlockedBy("has_" + inputOre.asItem().toString(), has(inputOre.asItem()))
+                .save(consumer, new ResourceLocation(MODID, smeltedItem.asItem().toString() + "_from_blasting_raw"));
     }
 }

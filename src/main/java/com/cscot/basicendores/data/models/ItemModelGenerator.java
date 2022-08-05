@@ -24,16 +24,16 @@ public class ItemModelGenerator extends ItemModelProvider
             Block block = registryObject.get();
 
             if (block instanceof ModOreBlock)
-                withExistingParent(block.getRegistryName().getPath(), new ResourceLocation(modid, "block/" + block.getRegistryName().getPath()));
+                withExistingParent(block.asItem().toString(), new ResourceLocation(modid, "block/" + block.asItem().toString()));
 
             if (block instanceof ModRedstoneOreBlock)
-                withExistingParent(block.getRegistryName().getPath(), new ResourceLocation(modid, "block/" + block.getRegistryName().getPath()));
+                withExistingParent(block.asItem().toString(), new ResourceLocation(modid, "block/" + block.asItem().toString()));
 
             if (block instanceof ModMetalBlock)
-                withExistingParent(block.getRegistryName().getPath(), new ResourceLocation(modid, "block/" + block.getRegistryName().getPath()));
+                withExistingParent(block.asItem().toString(), new ResourceLocation(modid, "block/" + block.asItem().toString()));
 
             if (block instanceof ModRawOreBlock)
-                withExistingParent(block.getRegistryName().getPath(), new ResourceLocation(modid, "block/" + block.getRegistryName().getPath()));
+                withExistingParent(block.asItem().toString(), new ResourceLocation(modid, "block/" + block.asItem().toString()));
 
         }
 

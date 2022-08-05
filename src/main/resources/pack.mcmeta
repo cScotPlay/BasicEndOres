@@ -1,7 +1,7 @@
 {
     "pack": {
         "description": "basicendores resources",
-        "pack_format": 6,
+        "pack_format": 10,
         "_comment": "Resource Packs for Basic End Ores"
     }
 }

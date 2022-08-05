@@ -13,7 +13,7 @@ public class BlockListHelper
 
     //Pull the list of protected ores from the config to be compared in BlockOreEvent
     public static boolean protectedOres(Block block) {
-        String name = block.getRegistryName().toString();
+        String name = block.asItem().toString();
         if (PROTECTED_ORES.contains(name))
             return true;
         else {

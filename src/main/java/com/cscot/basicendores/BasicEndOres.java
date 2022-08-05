@@ -1,13 +1,12 @@
 package com.cscot.basicendores;
 
-import com.cscot.basicendores.data.worldgen.ModOreConfiguredFeatures;
-import com.cscot.basicendores.data.worldgen.ModOrePlacedFeature;
+import com.cscot.basicendores.data.worldgen.WorldDataGenerator;
 import com.cscot.basicendores.util.helpers.BlockListHelper;
 import com.cscot.basicendores.util.itemgroups.BEOItemGroup;
 import com.cscot.basicendores.util.handler.ConfigHandler;
-import com.cscot.basicendores.world.OreGenerator;
 import com.cscot.basicendores.world.item.ModBlockItems;
 import com.cscot.basicendores.world.item.ModItems;
+import com.cscot.basicendores.world.level.ModBiomeCodecs;
 import com.cscot.basicendores.world.level.block.ModBlocks;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraftforge.api.distmarker.Dist;
@@ -55,10 +54,12 @@ public class BasicEndOres
         ModBlockItems.ITEMS.register(FML);
         ModBlocks.BLOCKS.register(FML);
 
-        MTA.register(OreGenerator.class);
+        ModBiomeCodecs.BIOME_MODIFIER_SERIALIZERS.register(FML);
 
         DistExecutor.unsafeRunWhenOn(Dist.CLIENT,
                 () -> () -> BasicEndOresClient.clientSetup(FML, MTA));
+
+        FML.addListener(WorldDataGenerator::generateWorldData);
     }
 
     //This used to be the PreInit

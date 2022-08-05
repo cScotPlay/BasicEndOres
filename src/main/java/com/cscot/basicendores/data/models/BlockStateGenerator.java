@@ -40,9 +40,9 @@ public class BlockStateGenerator extends BlockStateProvider
     public void simpleOreBlock(Block block)
     {
         ResourceLocation parentName = new ResourceLocation(MODID, "block/cube_overlay_all");
-        String oreName = block.getRegistryName().getPath();
+        String oreName = block.asItem().toString();
 
-        simpleBlock(block, models().withExistingParent(block.getRegistryName().getPath(), parentName).texture("all", mcLoc("block/end_stone")).texture("overlay", modLoc("block/" + oreName)));
+        simpleBlock(block, models().withExistingParent(block.asItem().toString(), parentName).texture("all", mcLoc("block/end_stone")).texture("overlay", modLoc("block/" + oreName)));
     }
 
     public ResourceLocation modLoc(String name)
