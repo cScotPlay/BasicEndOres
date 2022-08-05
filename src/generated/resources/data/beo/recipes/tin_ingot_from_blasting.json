@@ -1,9 +1,0 @@
-{
-  "type": "minecraft:blasting",
-  "ingredient": {
-    "item": "beo:end_tin_ore"
-  },
-  "result": "beo:tin_ingot",
-  "experience": 0.7,
-  "cookingtime": 100
-}
