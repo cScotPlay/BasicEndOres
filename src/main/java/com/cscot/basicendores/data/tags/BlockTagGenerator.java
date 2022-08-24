@@ -51,8 +51,44 @@ public class BlockTagGenerator extends BlockTagsProvider
         // ***************************************************************************** //
         //  Forge Tags
         // ***************************************************************************** //
-        tag(ORES).add(registry.stream().filter(ORE_BLOCKS).filter(b -> b instanceof ModOreBlock).sorted(Comparator.comparing(Block::toString)).toArray(Block[]::new));
-        tag(STORAGE_BLOCKS).add(registry.stream().filter(ORE_BLOCKS).filter(b -> b instanceof ModMetalBlock).sorted(Comparator.comparing(Block::toString)).toArray(Block[]::new));
+//        tag(ORES).add(registry.stream().filter(ORE_BLOCKS).filter(b -> b instanceof ModOreBlock).sorted(Comparator.comparing(Block::toString)).toArray(Block[]::new));
+//        tag(STORAGE_BLOCKS).add(registry.stream().filter(ORE_BLOCKS).filter(b -> b instanceof ModMetalBlock).sorted(Comparator.comparing(Block::toString)).toArray(Block[]::new));
+
+        tag(ORES).add(
+                ModBlocks.END_DIAMOND_ORE.get(),
+                ModBlocks.END_EMERALD_ORE.get(),
+                ModBlocks.END_REDSTONE_ORE.get(),
+                ModBlocks.END_SILVER_ORE.get(),
+                ModBlocks.END_GOLD_ORE.get(),
+                ModBlocks.END_LEAD_ORE.get(),
+                ModBlocks.END_NICKEL_ORE.get(),
+                ModBlocks.END_URANIUM_ORE.get(),
+                ModBlocks.END_IRON_ORE.get(),
+                ModBlocks.END_LAPIS_ORE.get(),
+                ModBlocks.END_COPPER_ORE.get(),
+                ModBlocks.END_ALUMINUM_ORE.get(),
+                ModBlocks.END_TIN_ORE.get(),
+                ModBlocks.END_COAL_ORE.get(),
+                ModBlocks.END_ZINC_ORE.get(),
+                ModBlocks.END_OSMIUM_ORE.get());
+
+        tag(STORAGE_BLOCKS).add(
+                ModBlocks.RAW_SILVER_BLOCK.get(),
+                ModBlocks.SILVER_BLOCK.get(),
+                ModBlocks.RAW_LEAD_BLOCK.get(),
+                ModBlocks.LEAD_BLOCK.get(),
+                ModBlocks.RAW_NICKEL_BLOCK.get(),
+                ModBlocks.NICKEL_BLOCK.get(),
+                ModBlocks.RAW_URANIUM_BLOCK.get(),
+                ModBlocks.URANIUM_BLOCK.get(),
+                ModBlocks.RAW_ZINC_BLOCK.get(),
+                ModBlocks.ZINC_BLOCK.get(),
+                ModBlocks.RAW_ALUMINUM_BLOCK.get(),
+                ModBlocks.ALUMINUM_BLOCK.get(),
+                ModBlocks.RAW_TIN_BLOCK.get(),
+                ModBlocks.TIN_BLOCK.get(),
+                ModBlocks.RAW_OSMIUM_BLOCK.get(),
+                ModBlocks.OSMIUM_BLOCK.get());
 
         tag(ORES_COAL).add(ModBlocks.END_COAL_ORE.get());
         tag(ORES_DIAMOND).add(ModBlocks.END_DIAMOND_ORE.get());
@@ -95,10 +131,43 @@ public class BlockTagGenerator extends BlockTagsProvider
         this.tag(BlockTags.LAPIS_ORES).add(ModBlocks.END_LAPIS_ORE.get());
 
         ///// MINEABLE WITH PICKAXE ///////
-        tag(BlockTags.MINEABLE_WITH_PICKAXE).add(registry.stream().filter(ORE_BLOCKS).filter(b -> b instanceof ModOreBlock).sorted(Comparator.comparing(Block::toString)).toArray(Block[]::new));
-        tag(BlockTags.MINEABLE_WITH_PICKAXE).add(registry.stream().filter(ORE_BLOCKS).filter(b -> b instanceof ModMetalBlock).sorted(Comparator.comparing(Block::toString)).toArray(Block[]::new));
-        tag(BlockTags.MINEABLE_WITH_PICKAXE).add(registry.stream().filter(ORE_BLOCKS).filter(b -> b instanceof ModRawOreBlock).sorted(Comparator.comparing(Block::toString)).toArray(Block[]::new));
-        tag(BlockTags.MINEABLE_WITH_PICKAXE).add(registry.stream().filter(ORE_BLOCKS).filter(b -> b instanceof ModRedstoneOreBlock).sorted(Comparator.comparing(Block::toString)).toArray(Block[]::new));
+//        tag(BlockTags.MINEABLE_WITH_PICKAXE).add(registry.stream().filter(ORE_BLOCKS).filter(b -> b instanceof ModOreBlock).sorted(Comparator.comparing(Block::toString)).toArray(Block[]::new));
+//        tag(BlockTags.MINEABLE_WITH_PICKAXE).add(registry.stream().filter(ORE_BLOCKS).filter(b -> b instanceof ModMetalBlock).sorted(Comparator.comparing(Block::toString)).toArray(Block[]::new));
+//        tag(BlockTags.MINEABLE_WITH_PICKAXE).add(registry.stream().filter(ORE_BLOCKS).filter(b -> b instanceof ModRawOreBlock).sorted(Comparator.comparing(Block::toString)).toArray(Block[]::new));
+//        tag(BlockTags.MINEABLE_WITH_PICKAXE).add(registry.stream().filter(ORE_BLOCKS).filter(b -> b instanceof ModRedstoneOreBlock).sorted(Comparator.comparing(Block::toString)).toArray(Block[]::new));
+
+        this.tag(BlockTags.MINEABLE_WITH_PICKAXE).add(
+                ModBlocks.END_DIAMOND_ORE.get(),
+                ModBlocks.END_EMERALD_ORE.get(),
+                ModBlocks.END_REDSTONE_ORE.get(),
+                ModBlocks.END_GOLD_ORE.get(),
+                ModBlocks.END_SILVER_ORE.get(),
+                ModBlocks.RAW_SILVER_BLOCK.get(),
+                ModBlocks.SILVER_BLOCK.get(),
+                ModBlocks.END_LEAD_ORE.get(),
+                ModBlocks.RAW_LEAD_BLOCK.get(),
+                ModBlocks.LEAD_BLOCK.get(),
+                ModBlocks.END_NICKEL_ORE.get(),
+                ModBlocks.RAW_NICKEL_BLOCK.get(),
+                ModBlocks.NICKEL_BLOCK.get(),
+                ModBlocks.END_URANIUM_ORE.get(),
+                ModBlocks.RAW_URANIUM_BLOCK.get(),
+                ModBlocks.URANIUM_BLOCK.get(),
+                ModBlocks.RAW_ZINC_BLOCK.get(),
+                ModBlocks.ZINC_BLOCK.get(),
+                ModBlocks.END_IRON_ORE.get(),
+                ModBlocks.END_LAPIS_ORE.get(),
+                ModBlocks.END_COPPER_ORE.get(),
+                ModBlocks.END_ALUMINUM_ORE.get(),
+                ModBlocks.RAW_ALUMINUM_BLOCK.get(),
+                ModBlocks.ALUMINUM_BLOCK.get(),
+                ModBlocks.END_TIN_ORE.get(),
+                ModBlocks.RAW_TIN_BLOCK.get(),
+                ModBlocks.TIN_BLOCK.get(),
+                ModBlocks.END_OSMIUM_ORE.get(),
+                ModBlocks.RAW_OSMIUM_BLOCK.get(),
+                ModBlocks.OSMIUM_BLOCK.get()
+        );
 
         this.tag(BlockTags.NEEDS_IRON_TOOL).add(
                 ModBlocks.END_DIAMOND_ORE.get(),
