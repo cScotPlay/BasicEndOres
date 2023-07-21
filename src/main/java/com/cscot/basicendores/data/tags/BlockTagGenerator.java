@@ -1,7 +1,7 @@
 package com.cscot.basicendores.data.tags;
 
 import com.cscot.basicendores.BasicEndOres;
-import com.cscot.basicendores.world.level.block.*;
+import com.cscot.basicendores.world.level.block.ModBlocks;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.tags.BlockTagsProvider;
 import net.minecraft.resources.ResourceLocation;
@@ -11,10 +11,9 @@ import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import net.minecraftforge.common.data.ExistingFileHelper;
 
-import static net.minecraftforge.common.Tags.Blocks.*;
-
-import java.util.Comparator;
 import java.util.function.Predicate;
+
+import static net.minecraftforge.common.Tags.Blocks.*;
 
 public class BlockTagGenerator extends BlockTagsProvider
 {
@@ -40,6 +39,16 @@ public class BlockTagGenerator extends BlockTagsProvider
     public static final TagKey<Block> OSMIUM_BLOCK = tagForge("storage_blocks/osmium");
     public static final TagKey<Block> URANIUM_BLOCK = tagForge("storage_blocks/uranium");
     public static final TagKey<Block> ZINC_BLOCK = tagForge("storage_blocks/zinc");
+
+    //BLOCKS OF RAW ORES
+    public static final TagKey<Block> RAW_ALUMINUM_BLOCK = tagForge("storage_blocks/raw_aluminum");
+    public static final TagKey<Block> RAW_LEAD_BLOCK = tagForge("storage_blocks/raw_lead");
+    public static final TagKey<Block> RAW_NICKEL_BLOCK = tagForge("storage_blocks/raw_nickel");
+    public static final TagKey<Block> RAW_OSMIUM_BLOCK = tagForge("storage_blocks/raw_osmium");
+    public static final TagKey<Block> RAW_SILVER_BLOCK = tagForge("storage_blocks/raw_silver");
+    public static final TagKey<Block> RAW_TIN_BLOCK = tagForge("storage_blocks/raw_tin");
+    public static final TagKey<Block> RAW_URANIUM_BLOCK = tagForge("storage_blocks/raw_uranium");
+    public static final TagKey<Block> RAW_ZINC_BLOCK = tagForge("storage_blocks/raw_zinc");
 
     public BlockTagGenerator(DataGenerator generator, ExistingFileHelper exFileHelper) {
         super(generator, BasicEndOres.MODID, exFileHelper);
@@ -70,25 +79,8 @@ public class BlockTagGenerator extends BlockTagsProvider
                 ModBlocks.END_TIN_ORE.get(),
                 ModBlocks.END_COAL_ORE.get(),
                 ModBlocks.END_ZINC_ORE.get(),
-                ModBlocks.END_OSMIUM_ORE.get());
-
-        tag(STORAGE_BLOCKS).add(
-                ModBlocks.RAW_SILVER_BLOCK.get(),
-                ModBlocks.SILVER_BLOCK.get(),
-                ModBlocks.RAW_LEAD_BLOCK.get(),
-                ModBlocks.LEAD_BLOCK.get(),
-                ModBlocks.RAW_NICKEL_BLOCK.get(),
-                ModBlocks.NICKEL_BLOCK.get(),
-                ModBlocks.RAW_URANIUM_BLOCK.get(),
-                ModBlocks.URANIUM_BLOCK.get(),
-                ModBlocks.RAW_ZINC_BLOCK.get(),
-                ModBlocks.ZINC_BLOCK.get(),
-                ModBlocks.RAW_ALUMINUM_BLOCK.get(),
-                ModBlocks.ALUMINUM_BLOCK.get(),
-                ModBlocks.RAW_TIN_BLOCK.get(),
-                ModBlocks.TIN_BLOCK.get(),
-                ModBlocks.RAW_OSMIUM_BLOCK.get(),
-                ModBlocks.OSMIUM_BLOCK.get());
+                ModBlocks.END_OSMIUM_ORE.get()
+        );
 
         tag(ORES_COAL).add(ModBlocks.END_COAL_ORE.get());
         tag(ORES_DIAMOND).add(ModBlocks.END_DIAMOND_ORE.get());
@@ -108,6 +100,16 @@ public class BlockTagGenerator extends BlockTagsProvider
         tag(ORES_URANIUM).add(ModBlocks.END_URANIUM_ORE.get());
         tag(ORES_ZINC).add(ModBlocks.END_ZINC_ORE.get());
 
+        tag(STORAGE_BLOCKS).addTags(
+                ALUMINUM_BLOCK,
+                LEAD_BLOCK,
+                NICKEL_BLOCK,
+                OSMIUM_BLOCK,
+                SILVER_BLOCK,
+                TIN_BLOCK,
+                URANIUM_BLOCK,
+                ZINC_BLOCK
+        );
         tag(ALUMINUM_BLOCK).add(ModBlocks.ALUMINUM_BLOCK.get());
         tag(SILVER_BLOCK).add(ModBlocks.SILVER_BLOCK.get());
         tag(LEAD_BLOCK).add(ModBlocks.LEAD_BLOCK.get());
@@ -117,6 +119,26 @@ public class BlockTagGenerator extends BlockTagsProvider
         tag(OSMIUM_BLOCK).add(ModBlocks.OSMIUM_BLOCK.get());
         tag(URANIUM_BLOCK).add(ModBlocks.URANIUM_BLOCK.get());
         tag(ZINC_BLOCK).add(ModBlocks.ZINC_BLOCK.get());
+
+        //BLOCKS OF RAW ORES
+        tag(STORAGE_BLOCKS).addTags(
+                RAW_ALUMINUM_BLOCK,
+                RAW_LEAD_BLOCK,
+                RAW_NICKEL_BLOCK,
+                RAW_OSMIUM_BLOCK,
+                RAW_SILVER_BLOCK,
+                RAW_TIN_BLOCK,
+                RAW_URANIUM_BLOCK,
+                RAW_ZINC_BLOCK
+        );
+        tag(RAW_ALUMINUM_BLOCK).add(ModBlocks.RAW_ALUMINUM_BLOCK.get());
+        tag(RAW_LEAD_BLOCK).add(ModBlocks.RAW_LEAD_BLOCK.get());
+        tag(RAW_NICKEL_BLOCK).add(ModBlocks.RAW_NICKEL_BLOCK.get());
+        tag(RAW_OSMIUM_BLOCK).add(ModBlocks.RAW_OSMIUM_BLOCK.get());
+        tag(RAW_SILVER_BLOCK).add(ModBlocks.RAW_SILVER_BLOCK.get());
+        tag(RAW_TIN_BLOCK).add(ModBlocks.RAW_TIN_BLOCK.get());
+        tag(RAW_URANIUM_BLOCK).add(ModBlocks.RAW_URANIUM_BLOCK.get());
+        tag(RAW_ZINC_BLOCK).add(ModBlocks.RAW_ZINC_BLOCK.get());
 
         // ***************************************************************************** //
         //  Vanilla Tags
@@ -141,32 +163,41 @@ public class BlockTagGenerator extends BlockTagsProvider
                 ModBlocks.END_EMERALD_ORE.get(),
                 ModBlocks.END_REDSTONE_ORE.get(),
                 ModBlocks.END_GOLD_ORE.get(),
-                ModBlocks.END_SILVER_ORE.get(),
-                ModBlocks.RAW_SILVER_BLOCK.get(),
-                ModBlocks.SILVER_BLOCK.get(),
-                ModBlocks.END_LEAD_ORE.get(),
-                ModBlocks.RAW_LEAD_BLOCK.get(),
-                ModBlocks.LEAD_BLOCK.get(),
-                ModBlocks.END_NICKEL_ORE.get(),
-                ModBlocks.RAW_NICKEL_BLOCK.get(),
-                ModBlocks.NICKEL_BLOCK.get(),
-                ModBlocks.END_URANIUM_ORE.get(),
-                ModBlocks.RAW_URANIUM_BLOCK.get(),
-                ModBlocks.URANIUM_BLOCK.get(),
-                ModBlocks.RAW_ZINC_BLOCK.get(),
-                ModBlocks.ZINC_BLOCK.get(),
                 ModBlocks.END_IRON_ORE.get(),
                 ModBlocks.END_LAPIS_ORE.get(),
                 ModBlocks.END_COPPER_ORE.get(),
+
+                ModBlocks.ALUMINUM_BLOCK.get(),
                 ModBlocks.END_ALUMINUM_ORE.get(),
                 ModBlocks.RAW_ALUMINUM_BLOCK.get(),
-                ModBlocks.ALUMINUM_BLOCK.get(),
-                ModBlocks.END_TIN_ORE.get(),
-                ModBlocks.RAW_TIN_BLOCK.get(),
-                ModBlocks.TIN_BLOCK.get(),
+
+                ModBlocks.END_LEAD_ORE.get(),
+                ModBlocks.LEAD_BLOCK.get(),
+                ModBlocks.RAW_LEAD_BLOCK.get(),
+
+                ModBlocks.RAW_NICKEL_BLOCK.get(),
+                ModBlocks.END_NICKEL_ORE.get(),
+                ModBlocks.NICKEL_BLOCK.get(),
+
                 ModBlocks.END_OSMIUM_ORE.get(),
+                ModBlocks.OSMIUM_BLOCK.get(),
                 ModBlocks.RAW_OSMIUM_BLOCK.get(),
-                ModBlocks.OSMIUM_BLOCK.get()
+
+                ModBlocks.END_SILVER_ORE.get(),
+                ModBlocks.SILVER_BLOCK.get(),
+                ModBlocks.RAW_SILVER_BLOCK.get(),
+
+                ModBlocks.END_TIN_ORE.get(),
+                ModBlocks.TIN_BLOCK.get(),
+                ModBlocks.RAW_TIN_BLOCK.get(),
+
+                ModBlocks.END_URANIUM_ORE.get(),
+                ModBlocks.URANIUM_BLOCK.get(),
+                ModBlocks.RAW_URANIUM_BLOCK.get(),
+
+                ModBlocks.END_ZINC_ORE.get(),
+                ModBlocks.ZINC_BLOCK.get(),
+                ModBlocks.RAW_ZINC_BLOCK.get()
         );
 
         this.tag(BlockTags.NEEDS_IRON_TOOL).add(
@@ -174,34 +205,45 @@ public class BlockTagGenerator extends BlockTagsProvider
                 ModBlocks.END_EMERALD_ORE.get(),
                 ModBlocks.END_REDSTONE_ORE.get(),
                 ModBlocks.END_GOLD_ORE.get(),
+
                 ModBlocks.END_SILVER_ORE.get(),
                 ModBlocks.RAW_SILVER_BLOCK.get(),
                 ModBlocks.SILVER_BLOCK.get(),
+
                 ModBlocks.END_LEAD_ORE.get(),
                 ModBlocks.RAW_LEAD_BLOCK.get(),
                 ModBlocks.LEAD_BLOCK.get(),
+
                 ModBlocks.END_NICKEL_ORE.get(),
                 ModBlocks.RAW_NICKEL_BLOCK.get(),
                 ModBlocks.NICKEL_BLOCK.get(),
+
                 ModBlocks.END_URANIUM_ORE.get(),
                 ModBlocks.RAW_URANIUM_BLOCK.get(),
                 ModBlocks.URANIUM_BLOCK.get(),
+
+                ModBlocks.END_ZINC_ORE.get(),
                 ModBlocks.RAW_ZINC_BLOCK.get(),
-                ModBlocks.ZINC_BLOCK.get());
+                ModBlocks.ZINC_BLOCK.get()
+        );
 
         this.tag(BlockTags.NEEDS_STONE_TOOL).add(
                 ModBlocks.END_IRON_ORE.get(),
                 ModBlocks.END_LAPIS_ORE.get(),
                 ModBlocks.END_COPPER_ORE.get(),
+
                 ModBlocks.END_ALUMINUM_ORE.get(),
                 ModBlocks.RAW_ALUMINUM_BLOCK.get(),
                 ModBlocks.ALUMINUM_BLOCK.get(),
+
                 ModBlocks.END_TIN_ORE.get(),
                 ModBlocks.RAW_TIN_BLOCK.get(),
                 ModBlocks.TIN_BLOCK.get(),
+
                 ModBlocks.END_OSMIUM_ORE.get(),
                 ModBlocks.RAW_OSMIUM_BLOCK.get(),
-                ModBlocks.OSMIUM_BLOCK.get());
+                ModBlocks.OSMIUM_BLOCK.get()
+        );
     }
 
     private static TagKey<Block> tagForge(String name)

@@ -55,6 +55,26 @@ public class ItemTagGenerator extends ItemTagsProvider
     public static final TagKey<Item> NUGGET_OSMIUM = tagForge("nuggets/osmium");
     public static final TagKey<Item> NUGGET_ZINC = tagForge("nuggets/zinc");
 
+    //BLOCKS OF RAW ORES
+    public static final TagKey<Item> RAW_ALUMINUM_BLOCK = tagForge("storage_blocks/raw_aluminum");
+    public static final TagKey<Item> RAW_LEAD_BLOCK = tagForge("storage_blocks/raw_lead");
+    public static final TagKey<Item> RAW_NICKEL_BLOCK = tagForge("storage_blocks/raw_nickel");
+    public static final TagKey<Item> RAW_OSMIUM_BLOCK = tagForge("storage_blocks/raw_osmium");
+    public static final TagKey<Item> RAW_SILVER_BLOCK = tagForge("storage_blocks/raw_silver");
+    public static final TagKey<Item> RAW_TIN_BLOCK = tagForge("storage_blocks/raw_tin");
+    public static final TagKey<Item> RAW_URANIUM_BLOCK = tagForge("storage_blocks/raw_uranium");
+    public static final TagKey<Item> RAW_ZINC_BLOCK = tagForge("storage_blocks/raw_zinc");
+
+    //RAW ORES
+    public static final TagKey<Item> RAW_ALUMINUM = tagForge("raw_materials/aluminum");
+    public static final TagKey<Item> RAW_LEAD = tagForge("raw_materials/lead");
+    public static final TagKey<Item> RAW_NICKEL = tagForge("raw_materials/nickel");
+    public static final TagKey<Item> RAW_OSMIUM = tagForge("raw_materials/osmium");
+    public static final TagKey<Item> RAW_SILVER = tagForge("raw_materials/silver");
+    public static final TagKey<Item> RAW_TIN = tagForge("raw_materials/tin");
+    public static final TagKey<Item> RAW_URANIUM = tagForge("raw_materials/uranium");
+    public static final TagKey<Item> RAW_ZINC = tagForge("raw_materials/zinc");
+
     public ItemTagGenerator(DataGenerator dataGenerator, BlockTagsProvider blockTagProvider, @Nullable ExistingFileHelper existingFileHelper) {
         super(dataGenerator, blockTagProvider, BasicEndOres.MODID, existingFileHelper);
     }
@@ -111,6 +131,37 @@ public class ItemTagGenerator extends ItemTagsProvider
         tag(NUGGET_TIN).add(ModItems.TIN_NUGGET.get());
         tag(NUGGET_OSMIUM).add(ModItems.OSMIUM_NUGGET.get());
         tag(NUGGET_ZINC).add(ModItems.ZINC_NUGGET.get());
+
+        //BLOCKS OF RAW ORES
+        copy(Tags.Blocks.STORAGE_BLOCKS, Tags.Items.STORAGE_BLOCKS);
+        copy(BlockTagGenerator.RAW_ALUMINUM_BLOCK, RAW_ALUMINUM_BLOCK);
+        copy(BlockTagGenerator.RAW_LEAD_BLOCK, RAW_LEAD_BLOCK);
+        copy(BlockTagGenerator.RAW_NICKEL_BLOCK, RAW_NICKEL_BLOCK);
+        copy(BlockTagGenerator.RAW_OSMIUM_BLOCK, RAW_OSMIUM_BLOCK);
+        copy(BlockTagGenerator.RAW_SILVER_BLOCK, RAW_SILVER_BLOCK);
+        copy(BlockTagGenerator.RAW_TIN_BLOCK, RAW_TIN_BLOCK);
+        copy(BlockTagGenerator.RAW_URANIUM_BLOCK, RAW_URANIUM_BLOCK);
+        copy(BlockTagGenerator.RAW_ZINC_BLOCK, RAW_ZINC_BLOCK);
+
+        //RAW ORES
+        tag(Tags.Items.RAW_MATERIALS).addTags(
+                RAW_ALUMINUM,
+                RAW_LEAD,
+                RAW_NICKEL,
+                RAW_OSMIUM,
+                RAW_SILVER,
+                RAW_TIN,
+                RAW_URANIUM,
+                RAW_ZINC);
+        tag(RAW_ALUMINUM).add(ModItems.RAW_ALUMINUM.get());
+        tag(RAW_LEAD).add(ModItems.RAW_LEAD.get());
+        tag(RAW_NICKEL).add(ModItems.RAW_NICKEL.get());
+        tag(RAW_OSMIUM).add(ModItems.RAW_OSMIUM.get());
+        tag(RAW_SILVER).add(ModItems.RAW_SILVER.get());
+        tag(RAW_TIN).add(ModItems.RAW_TIN.get());
+        tag(RAW_URANIUM).add(ModItems.RAW_URANIUM.get());
+        tag(RAW_ZINC).add(ModItems.RAW_ZINC.get());
+
     }
 
     private static TagKey<Item> tagForge(String name)
