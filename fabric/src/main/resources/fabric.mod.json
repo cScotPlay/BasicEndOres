@@ -1,0 +1,42 @@
+{
+    "schemaVersion": 1,
+    "id": "beo",
+    "version": "${version}",
+    "name": "Basic End Ores",
+    "description": "Basic End Ores adds Overworld and Modded Ores to the End.",
+    "authors": [
+        "${mod_author}"
+    ],
+    "contact": {
+        "homepage": "https://minecraft.curseforge.com/projects/basic-end-ores",
+        "sources": "https://github.com/cScotPlay/BasicEndOres",
+        "issues": "https://github.com/cScotPlay/BasicEndOres/issues"
+    },
+    "license": "MIT License",
+    "icon": "beo-logo.png",
+    "environment": "*",
+    "entrypoints": {
+        "main": [
+            "net.mcs3.basicendores.FabricBasicEndOres"
+        ],
+        "client": [
+            "net.mcs3.basicendores.FabricBasicEndOresClient"
+        ],
+        "fabric-datagen": [
+            "net.mcs3.basicendores.data.FabricDataGenerators"
+        ]
+    },
+    "mixins": [
+        "beo.fabric.mixins.json"
+    ],
+    "depends": {
+        "fabricloader": ">=0.14",
+        "fabric": "*",
+        "minecraft": "1.20.1",
+        "java": ">=17"
+    },
+    "suggests": {
+        "another-mod": "*"
+    }
+}
+  

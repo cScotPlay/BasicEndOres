@@ -1,0 +1,27 @@
+modLoader = "javafml"
+loaderVersion = "[47,)"
+license = "MIT License"
+issueTrackerURL="https://github.com/cScotPlay/BasicEndOres/issues"
+[[mods]]
+modId = "beo"
+version = "${file.jarVersion}"
+displayName = "Basic End Ores"
+displayURL="https://minecraft.curseforge.com/projects/basic-end-ores"
+logoFile = "beo-logo.png"
+credits = "Thanks to An Sar for the help in working through this.  Thanks to McJty for putting together the tutorial videos that helped me to accomplish this."
+authors = "cScotPlay"
+description = '''
+Basic End Ores adds Overworld and Modded Ores to the End Dimension.
+''' #mandatory (Supports multiline text)
+[[dependencies.beo]] #optional
+modId = "forge" #mandatory
+mandatory = true #mandatory
+versionRange = "[47,)" #mandatory
+ordering = "NONE" # The order that this dependency should load in relation to your mod, required to be either 'BEFORE' or 'AFTER' if the dependency is not mandatory
+side = "BOTH" # Side this dependency is applied on - 'BOTH', 'CLIENT' or 'SERVER'
+[[dependencies.beo]]
+modId = "minecraft"
+mandatory = true
+versionRange = "[1.20.1,1.21)"
+ordering = "NONE"
+side = "BOTH"
