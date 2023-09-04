@@ -131,25 +131,6 @@ public class ForgeBlockTagGenerator extends BlockTagsProvider
         tag(RAW_URANIUM_BLOCK).add(BEOBlocks.RAW_URANIUM_BLOCK);
         tag(RAW_ZINC_BLOCK).add(BEOBlocks.RAW_ZINC_BLOCK);
 
-        tag(ORES_IN_GROUND_NETHERRACK).add(
-                BEOBlocks.END_EMERALD_ORE,
-                BEOBlocks.END_DIAMOND_ORE,
-                BEOBlocks.END_GOLD_ORE,
-                BEOBlocks.END_REDSTONE_ORE,
-                BEOBlocks.END_LAPIS_ORE,
-                BEOBlocks.END_COAL_ORE,
-                BEOBlocks.END_SILVER_ORE,
-                BEOBlocks.END_IRON_ORE,
-                BEOBlocks.END_LEAD_ORE,
-                BEOBlocks.END_NICKEL_ORE,
-                BEOBlocks.END_COPPER_ORE,
-                BEOBlocks.END_ALUMINUM_ORE,
-                BEOBlocks.END_TIN_ORE,
-                BEOBlocks.END_OSMIUM_ORE,
-                BEOBlocks.END_URANIUM_ORE,
-                BEOBlocks.END_ZINC_ORE
-        );
-
     }
 
     private static TagKey<Block> tagForge(String name)
